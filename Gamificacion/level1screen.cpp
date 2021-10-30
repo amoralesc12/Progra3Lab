@@ -11,9 +11,9 @@ using namespace sf;
 
 void level1screen::loadSprites() {
 
-	if (!bg.loadFromFile("Resources/bgNivel1.png")) { cout << "NO ESTA"; }
+	/*if (!bg.loadFromFile("Resources/bgNivel1.png")) { cout << "NO ESTA"; }
 	
-	bgN1.setTexture(bg);
+	bgN1.setTexture(bg);*/
 	bgN1.setPosition(0, 0);
 
 }
@@ -30,15 +30,10 @@ void level1screen::loadScreen() {
 				window.close();
 			}
 
-			if (this->evento.type == Event::MouseButtonPressed) {
-				Vector2i mousePos = Mouse::getPosition(window);
-				Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
-
-				
-			}
+			
 		}
 
-		window.clear(Color::Black);
+		window.clear(Color::White);
 		window.draw(this->bgN1);
 		
 		window.display();

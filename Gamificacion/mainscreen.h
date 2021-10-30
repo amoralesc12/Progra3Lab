@@ -18,7 +18,7 @@ private:
 
 	Sprite Bplay; Texture play;
 
-	Sprite tronTitle; Texture message;
+	Sprite mTitle; Texture message;
 
 	Event evento;
 

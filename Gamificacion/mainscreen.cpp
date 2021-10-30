@@ -11,7 +11,7 @@ using namespace sf;
 
 void mainscreen::loadSprites() {
 
-	//loading textures
+	//textures
 	if (!fondoInicial.loadFromFile("Resources/bgInicio.png")) { cout << "NO ESTA LA IMAGEN FONDO"; }
 	if (!message.loadFromFile("Resources/bgmotto.png")) { cout << "NO ESTA EL TITULO"; }
 	if (!play.loadFromFile("Resources/buttonplay.png")) { cout << "NO ESTA LA BOTON JUGAR!"; }
@@ -21,24 +21,24 @@ void mainscreen::loadSprites() {
 	this->bgInicio.setTexture(this->fondoInicial);
 	this->bgInicio.setPosition(0, 0);
 
-	tronTitle.setTexture(this->message);
-	// h    w
-	tronTitle.setPosition(0, 30);
+	mTitle.setTexture(this->message);
+	
+	mTitle.setPosition(266, 125);
 
 
 	this->Bplay.setTexture(this->play);
-	this->Bplay.setPosition(320, 220);
+	this->Bplay.setPosition(200, 515);
 
 	this->Bsalir.setTexture(this->salir);
-	this->Bsalir.setPosition(316, 340);
+	this->Bsalir.setPosition(540, 515);
 };
 
 
 
 
 void mainscreen::pantallaInicial() {
-	//  h    w
-	RenderWindow window(VideoMode(800, 533), "Pantalla Inicio", Style::Titlebar | Style::Close);
+
+	RenderWindow window(VideoMode(996, 666), "Pantalla Inicio", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadSprites();
 
@@ -68,7 +68,7 @@ void mainscreen::pantallaInicial() {
 
 		window.clear(Color::Black);
 		window.draw(this->bgInicio);
-		window.draw(this->tronTitle);
+		window.draw(this->mTitle);
 		window.draw(this->Bplay);
 		window.draw(Bsalir);
 		window.display();
