@@ -145,11 +145,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="elegirBando.cpp" />
     <ClCompile Include="level1screen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainscreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="elegirBando.h" />
     <ClInclude Include="level1screen.h" />
     <ClInclude Include="mainscreen.h" />
   </ItemGroup>
