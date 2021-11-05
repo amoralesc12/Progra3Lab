@@ -1,7 +1,7 @@
 #include"SFML/Graphics.hpp"
 #include"mainscreen.h"
-//#include"play.h"
-#include "level1screen.h"
+#include "TriviaSelect.h"
+#include "elegirBando.h"
 #include<iostream>
 using std::cout;
 using namespace sf;
@@ -38,7 +38,7 @@ void mainscreen::loadSprites() {
 
 void mainscreen::pantallaInicial() {
 
-	RenderWindow window(VideoMode(996, 666), "Pantalla Inicio", Style::Titlebar | Style::Close);
+	RenderWindow window(VideoMode(1000, 700), "Pantalla Inicio", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadSprites();
 
@@ -54,9 +54,9 @@ void mainscreen::pantallaInicial() {
 
 				if (this->Bplay.getGlobalBounds().contains(mousePosF))
 				{
-					level1screen choose;
+					elegirBando choose;
 					window.close();
-					choose.loadScreen();
+					choose.loadScreen_B();
 				}
 
 			
