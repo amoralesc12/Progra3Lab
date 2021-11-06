@@ -21,7 +21,10 @@
     <ClCompile Include="mainscreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="level1screen.cpp">
+    <ClCompile Include="TriviaSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="elegirBando.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +32,10 @@
     <ClInclude Include="mainscreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="level1screen.h">
+    <ClInclude Include="TriviaSelect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="elegirBando.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
