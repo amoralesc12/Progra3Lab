@@ -146,12 +146,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="elegirBando.cpp" />
+    <ClCompile Include="IntroLvl.cpp" />
+    <ClCompile Include="selectPuertas.cpp" />
     <ClCompile Include="TriviaSelect.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainscreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="elegirBando.h" />
+    <ClInclude Include="IntroLvl.h" />
+    <ClInclude Include="selectPuertas.h" />
     <ClInclude Include="TriviaSelect.h" />
     <ClInclude Include="mainscreen.h" />
   </ItemGroup>

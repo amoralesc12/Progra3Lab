@@ -27,6 +27,12 @@
     <ClCompile Include="elegirBando.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IntroLvl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selectPuertas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainscreen.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="elegirBando.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroLvl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selectPuertas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
