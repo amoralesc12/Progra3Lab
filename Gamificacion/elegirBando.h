@@ -16,7 +16,7 @@ private:
 	Sprite bgBando;  Texture bgB;
 	Sprite text1;	 Texture g1;
 	Sprite text2;	 Texture g2;
-
+	Sprite mensj;    Texture mensjB;
 	
 	Event evento;
 };
