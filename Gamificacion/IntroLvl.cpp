@@ -1,17 +1,21 @@
 #include "IntroLvl.h"
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include "selectPuertas.h"
 #include <iostream>
 
 using namespace std;
 using namespace sf;
 
-void IntroLvl::loadSprites() {
+void IntroLvl::loadSprites(Music& musica) {
 
 	//loading textures
 	if (!fondoTexture.loadFromFile("Resources/FondoPiedra.png")) { cout << "NO ESTA LA IMAGEN FONDO"; }
 	if (!cartaTexture.loadFromFile("Resources/Carta.png")) { cout << "NO ESTA LA IMAGEN CARTA"; }
 	if (!fuente.loadFromFile("Resources/CurlyLetters.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	if (!musica.openFromFile("Resources/Musica2.ogg")) { cout << "NO ESTA LA MUSICA!"; }
+
+	musica.play();
 
 	//setting Sprites with textures
 	this->fondo.setTexture(this->fondoTexture);
@@ -90,15 +94,14 @@ void IntroLvl::loadSprites() {
 
 };
 
-IntroLvl::IntroLvl() {
-	pantalla();
+IntroLvl::IntroLvl(RenderWindow& window, Music& musica) {
+	pantalla(window, musica);
 }
 
-void IntroLvl::pantalla() {
+void IntroLvl::pantalla(RenderWindow& window, Music& musica) {
 	//  h    w
-	RenderWindow window(VideoMode(1000, 700), "Pantalla Inicio", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
-	loadSprites();
+	loadSprites(musica);
 
 	Clock wait;
 	Time tempo = wait.getElapsedTime();
@@ -129,11 +132,13 @@ void IntroLvl::pantalla() {
 		window.draw(this->fondo);
 		window.draw(this->carta);
 		window.draw(this->narracion);
+
 		if (this->narracion.getPosition().y >= -3200) {
 			this->y1 -= 0.86 * speedUp; this->y -= 1 * speedUp;
 			this->carta.setPosition(this->x1, this->y1);
 			this->narracion.setPosition(this->x, this->y); 
 		} else { window.draw(continuar); }
+
 		window.display();
 	}
 };

@@ -1,6 +1,10 @@
 #include "selectPuertas.h"
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
+#include "elegirBando.h"
+#include "mainscreen.h"
 #include <iostream>
+#include <cstdlib>
 
 using std::cout;
 
@@ -113,6 +117,20 @@ selectPuertas::selectPuertas(RenderWindow& ventana) {
 						puerta3.getGlobalBounds().contains(mousePosF) || puerta4.getGlobalBounds().contains(mousePosF)) {
 						recuadro = true;
 						ventana.setMouseCursor(def);
+					}
+				}
+				if (evento.type == Event::KeyPressed) {
+					if (evento.key.code == Keyboard::Escape) {
+						elegirBando choose;
+						ventana.close();
+						choose.loadScreen_B();
+					}
+				}
+			}
+			else {
+				if (evento.type == Event::KeyPressed) {
+					if (evento.key.code == Keyboard::Escape) {
+						recuadro = false;
 					}
 				}
 			}

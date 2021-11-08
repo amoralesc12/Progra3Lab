@@ -3,15 +3,16 @@
 #ifndef INTROLVL_H
 #define INTROLVL_H
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 using namespace sf;
 
 class IntroLvl {
 
 public:
-	IntroLvl();
-	void pantalla();
-	void loadSprites();
+	IntroLvl(RenderWindow& window, Music& musica);
+	void pantalla(RenderWindow& window, Music& musica);
+	void loadSprites(Music& musica);
 
 private:
 	float speedUp = 1;

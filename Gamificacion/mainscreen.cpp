@@ -1,13 +1,12 @@
 #include"SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include"mainscreen.h"
 #include "TriviaSelect.h"
 #include "elegirBando.h"
+#include "IntroLvl.h"
 #include<iostream>
 using std::cout;
 using namespace sf;
-
-
-
 
 void mainscreen::loadSprites() {
 
@@ -16,25 +15,32 @@ void mainscreen::loadSprites() {
 	if (!message.loadFromFile("Resources/bgmotto.png")) { cout << "NO ESTA EL TITULO"; }
 	if (!play.loadFromFile("Resources/buttonplay.png")) { cout << "NO ESTA LA BOTON JUGAR!"; }
 	if (!salir.loadFromFile("Resources/buttonsalir.png")) { cout << "NO ESTA BOTON SALIR!"; }
+	if (!musica.openFromFile("Resources/Intro.ogg")) { cout << "NO ESTA LA MUSICA!"; }
 
 	//setting Sprites with textures
 	this->bgInicio.setTexture(this->fondoInicial);
-	this->bgInicio.setPosition(0, 0);
+	this->bgInicio.setPosition(-18, 0);
+	this->bgInicio.setScale(1.1, 1.1);
 
 	mTitle.setTexture(this->message);
 	
-	mTitle.setPosition(266, 125);
+	mTitle.setPosition(286, 125);
 
+	musica.play();
+	musica.setVolume(20);
 
 	this->Bplay.setTexture(this->play);
-	this->Bplay.setPosition(200, 515);
+	this->Bplay.setPosition(220, 515);
 
 	this->Bsalir.setTexture(this->salir);
-	this->Bsalir.setPosition(540, 515);
-};
+	this->Bsalir.setPosition(560, 515);
+}
 
-
-
+Music& mainscreen::refMusica()
+{
+	return musica;
+}
+;
 
 void mainscreen::pantallaInicial() {
 
@@ -54,9 +60,8 @@ void mainscreen::pantallaInicial() {
 
 				if (this->Bplay.getGlobalBounds().contains(mousePosF))
 				{
-					elegirBando choose;
-					window.close();
-					choose.loadScreen_B();
+					window.clear();
+					IntroLvl intro(window, musica);
 				}
 
 			

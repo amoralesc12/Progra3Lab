@@ -2,6 +2,7 @@
 #include "elegirBando.h"
 #include"SFML/Graphics.hpp"
 #include "mainscreen.h"
+#include "Game.h"
 
 using namespace std;
 using namespace sf;
@@ -101,6 +102,13 @@ void TriviaSelect::loadScreen_TS() {
 
 				}
 
+			}
+			if (evento.type == Event::KeyPressed) {
+				if (evento.key.code == Keyboard::Escape) {
+					Game juego;
+					window.close();
+					juego.run();
+				}
 			}
 			
 		}
