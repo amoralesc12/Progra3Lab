@@ -9,7 +9,7 @@
 Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
 {
 	//
-	if (!this->fuente.loadFromFile("Mochiy.ttf"))
+	if (!this->fuente.loadFromFile("Resources/CurlyLetters.ttf"))
 	{
 	}
 
