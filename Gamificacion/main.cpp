@@ -6,9 +6,12 @@
 
 int main() {
 
-    mainscreen mscreen;
-    mscreen.pantallaInicial();
+   // mainscreen mscreen;
+   // mscreen.pantallaInicial();
    
+    Game game;
+    game.run();
+
 
     return 0;
 }

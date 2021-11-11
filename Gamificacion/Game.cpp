@@ -118,13 +118,14 @@ void Game::processEvents()
 			{
 				if (spr_globos[i].getGlobalBounds().intersects(rect))
 				{
-					spr_globos[i].setColor(sf::Color(250, 0, 0));
+					//spr_globos[i].setColor(sf::Color(250, 0, 0));
 
 					if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
 
 					}
 					spr_globos[i].setTexture(tex_globos[i]);
 
+					
 				}
 			}
 
