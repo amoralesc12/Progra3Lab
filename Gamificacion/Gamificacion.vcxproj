@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="elegirBando.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="IntroLvl.cpp" />
     <ClCompile Include="selectPuertas.cpp" />
     <ClCompile Include="TriviaSelect.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="elegirBando.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="IntroLvl.h" />
     <ClInclude Include="selectPuertas.h" />
     <ClInclude Include="TriviaSelect.h" />
