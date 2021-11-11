@@ -4,6 +4,7 @@
 #define SELECTPUERTAS_H
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 using namespace sf;
 
 class selectPuertas {
