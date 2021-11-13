@@ -3,10 +3,10 @@
 #include "SFML/Audio.hpp"
 #include "elegirBando.h"
 #include "mainscreen.h"
-#include "Game.h"
+#include "Recorrido.h"
 #include <iostream>
 #include <cstdlib>
-
+//COMMIT
 using std::cout;
 
 void selectPuertas::loadSprites() {
@@ -20,7 +20,7 @@ void selectPuertas::loadSprites() {
 
 	select.setFont(fuente);
 	select.setString("Selecciona una puerta y veras el mundo de sabiduria...");
-	select.setPosition(60,70);
+	select.setPosition(60, 70);
 	select.setCharacterSize(40);
 
 	A.setFont(fuente);
@@ -119,18 +119,14 @@ selectPuertas::selectPuertas(RenderWindow& ventana) {
 						recuadro = true;
 						ventana.setMouseCursor(def);
 
-						if (puerta2.getGlobalBounds().contains(mousePosF)) {
-							Game game;
-							game.run();
-						}
 
 					}
 				}
 				if (evento.type == Event::KeyPressed) {
-					if (evento.key.code == Keyboard::Escape) {
+					if (evento.key.code == Keyboard::A) {
+						RenderWindow window;
 						elegirBando choose;
-						ventana.close();
-						choose.loadScreen_B();
+						choose.loadScreen_B(ventana);
 					}
 				}
 			}

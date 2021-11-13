@@ -3,7 +3,7 @@
 #include "SFML/Audio.hpp"
 #include "selectPuertas.h"
 #include <iostream>
-
+//
 using namespace std;
 using namespace sf;
 
@@ -20,7 +20,7 @@ void IntroLvl::loadSprites(Music& musica) {
 	//setting Sprites with textures
 	this->fondo.setTexture(this->fondoTexture);
 	this->fondo.setPosition(0, 0);
-	this->fondo.setScale(.5f,.5f);
+	this->fondo.setScale(.5f, .5f);
 
 	this->carta.setTexture(this->cartaTexture);
 	this->carta.setPosition(this->x1, this->y1);
@@ -35,7 +35,7 @@ void IntroLvl::loadSprites(Music& musica) {
 		"de los hombres frente al mundo\n"
 		"y a la vida, denominado humanismo.\n"
 		"Están convencidos que se ha producido\n"
-		"una ruptura radical con el mundo\n" 
+		"una ruptura radical con el mundo\n"
 		"medieval y tratan de entender cuál\n"
 		"es el significado del cambio, luego\n"
 		"para final del mismo siglo y durante\n"
@@ -83,7 +83,7 @@ void IntroLvl::loadSprites(Music& musica) {
 		"al nivel de dominio, nivel de experto");
 	narracion.setFont(fuente);
 	narracion.setFillColor(Color::Black);
-	narracion.setPosition(this->x,this->y);
+	narracion.setPosition(this->x, this->y);
 	narracion.setCharacterSize(44);
 
 	continuar.setString("Clic para continuar...");
@@ -125,7 +125,7 @@ void IntroLvl::pantalla(RenderWindow& window, Music& musica) {
 			if (evento.type == Event::MouseButtonReleased) {
 				speedUp = 1;
 			}
-			
+
 		}
 
 		window.clear(Color::Black);
@@ -136,9 +136,10 @@ void IntroLvl::pantalla(RenderWindow& window, Music& musica) {
 		if (this->narracion.getPosition().y >= -3200) {
 			this->y1 -= 0.86 * speedUp; this->y -= 1 * speedUp;
 			this->carta.setPosition(this->x1, this->y1);
-			this->narracion.setPosition(this->x, this->y); 
-		} else { window.draw(continuar); }
+			this->narracion.setPosition(this->x, this->y);
+		}
+		else { window.draw(continuar); }
 
 		window.display();
 	}
-};
+}

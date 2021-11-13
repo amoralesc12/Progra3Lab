@@ -1,11 +1,12 @@
 #pragma once
 #ifndef GAME_H
 #define GAME_H
-#include <SFML/Graphics.hpp>
-#include<array>
+
+#include "SFML/Graphics.hpp"
+#include <array>
+
 class Game
 {
-
 public:
 	Game();
 	void run();
@@ -33,6 +34,8 @@ private:
 	sf::Sprite spr_Ground;
 	sf::Text texto;
 	sf::Font fuente;
-
 };
-#endif // !GLOBOS_H
+
+#endif // GAME_H
+
+

@@ -7,7 +7,7 @@
 #include<iostream>
 using std::cout;
 using namespace sf;
-
+//COMMIT
 void mainscreen::loadSprites() {
 
 	//textures
@@ -23,7 +23,7 @@ void mainscreen::loadSprites() {
 	this->bgInicio.setScale(1.1, 1.1);
 
 	mTitle.setTexture(this->message);
-	
+
 	mTitle.setPosition(286, 125);
 
 	musica.play();
@@ -64,7 +64,7 @@ void mainscreen::pantallaInicial() {
 					IntroLvl intro(window, musica);
 				}
 
-			
+
 				else if (Bsalir.getGlobalBounds().contains(mousePosF)) {
 					window.close();
 				}
@@ -79,4 +79,3 @@ void mainscreen::pantallaInicial() {
 		window.display();
 	}
 };
-

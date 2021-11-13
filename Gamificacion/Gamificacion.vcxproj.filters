@@ -27,13 +27,16 @@
     <ClCompile Include="elegirBando.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="IntroLvl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="selectPuertas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="Recorrido.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Question.cpp">
@@ -50,13 +53,16 @@
     <ClInclude Include="elegirBando.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="IntroLvl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="selectPuertas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Recorrido.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Question.h">

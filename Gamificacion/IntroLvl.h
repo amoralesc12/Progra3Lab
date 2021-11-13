@@ -1,14 +1,13 @@
 #pragma once
-
 #ifndef INTROLVL_H
 #define INTROLVL_H
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 
 using namespace sf;
-
-class IntroLvl {
-
+class IntroLvl
+{
 public:
 	IntroLvl(RenderWindow& window, Music& musica);
 	void pantalla(RenderWindow& window, Music& musica);
@@ -25,7 +24,6 @@ private:
 	Font fuente;
 	Text narracion, continuar;
 };
-
-#endif // !INTROLVL?H
+#endif // !INTROLVL_H
 
 
