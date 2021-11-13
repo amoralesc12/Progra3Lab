@@ -3,6 +3,7 @@
 #include "SFML/Audio.hpp"
 #include "elegirBando.h"
 #include "mainscreen.h"
+#include "Game.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -117,6 +118,12 @@ selectPuertas::selectPuertas(RenderWindow& ventana) {
 						puerta3.getGlobalBounds().contains(mousePosF) || puerta4.getGlobalBounds().contains(mousePosF)) {
 						recuadro = true;
 						ventana.setMouseCursor(def);
+
+						if (puerta2.getGlobalBounds().contains(mousePosF)) {
+							Game game;
+							game.run();
+						}
+
 					}
 				}
 				if (evento.type == Event::KeyPressed) {

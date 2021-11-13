@@ -153,6 +153,7 @@
     <ClCompile Include="elegirBando.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="IntroLvl.cpp" />
+    <ClCompile Include="Question.cpp" />
     <ClCompile Include="selectPuertas.cpp" />
     <ClCompile Include="TriviaSelect.cpp" />
     <ClCompile Include="main.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="elegirBando.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IntroLvl.h" />
+    <ClInclude Include="Question.h" />
     <ClInclude Include="selectPuertas.h" />
     <ClInclude Include="TriviaSelect.h" />
     <ClInclude Include="mainscreen.h" />
