@@ -3,17 +3,18 @@
 #include <stdlib.h> 
 #include <ctime>
 #include <stdio.h>
+#include"Question.h"
 #include<random>
 
-
+Question question;
 Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
 {
 	//
 	if (!this->fuente.loadFromFile("Resources/CurlyLetters.ttf"))
 	{
 	}
-
-	texto.setString("Para algunos de los siguientes filósofos, el criterio de verdad es la evidencia sensible: ");
+	
+	texto.setString(question.q[question.getQuestion()][0]);
 	// Asignamos la fuente que hemos cargado al texto
 	texto.setFont(fuente);
 	// Tamaño de la fuente
@@ -119,11 +120,18 @@ void Game::processEvents()
 				if (spr_globos[i].getGlobalBounds().intersects(rect))
 				{
 					//spr_globos[i].setColor(sf::Color(250, 0, 0));
+					if (question.getResp() == i)
+					{
+						//GANADORRRR
+						spr_globos[i].setColor(sf::Color::Cyan);
+						
+					}else{
+						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
 
-					if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
-
+						}
+						spr_globos[i].setTexture(tex_globos[i]);
 					}
-					spr_globos[i].setTexture(tex_globos[i]);
+					
 
 					
 				}
