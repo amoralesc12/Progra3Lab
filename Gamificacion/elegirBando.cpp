@@ -1,8 +1,8 @@
 #include "elegirBando.h"
-#include "TriviaSelect.h"
+#include "Recorrido.h"
 #include"SFML/Graphics.hpp"
 #include "mainscreen.h"
-
+//
 using namespace std;
 using namespace sf;
 
@@ -15,6 +15,8 @@ void elegirBando::addingSprites_B() {
 	if (!g1.loadFromFile("Resources/textoR.png")) { cout << "NO SE ENCUENTRA"; }
 	if (!g2.loadFromFile("Resources/textoE.png")) { cout << "NO SE ENCUENTRA"; }
 	if (!mensjB.loadFromFile("Resources/mBando.png")) { cout << "NO SE ENCUENTRA"; }
+	if (!izq.loadFromFile("Resources/Guardia izq.png")) { cout << "NO SE ENCUENTRA"; }
+
 
 	bgBando.setTexture(bgB);
 	bgBando.setPosition(0, 0);
@@ -22,41 +24,44 @@ void elegirBando::addingSprites_B() {
 	text1.setTexture(g1);
 	text1.setPosition(150, 350);
 
+	Sizq.setTexture(izq);
+	Sizq.setPosition(45,525);
 
 	text2.setTexture(g2);
 	text2.setPosition(650, 350);
+
+	Sder.setTexture(izq);
+	Sder.setPosition(545, 525);
 
 	mensj.setTexture(mensjB);
 	mensj.setPosition(10, 50);
 }
 
-void elegirBando::loadScreen_B()
+void elegirBando::loadScreen_B(RenderWindow& ventana)
 {
-	RenderWindow window(VideoMode(1000, 700), "Elegir Bando", Style::Titlebar | Style::Close);
-	window.setFramerateLimit(60);
 	addingSprites_B();
 
-	while (window.isOpen()) {
-		while (window.pollEvent(this->evento)) {
+	while (ventana.isOpen()) {
+		while (ventana.pollEvent(this->evento)) {
+			Vector2i mousePos = Mouse::getPosition(ventana);
+			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 			if (this->evento.type == Event::Closed) {
-				window.close();
+				ventana.close();
 			}
 
 			if (this->evento.type == Event::MouseButtonPressed) {
-				Vector2i mousePos = Mouse::getPosition(window);
-				Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
-				if (this->text1.getGlobalBounds().contains(mousePosF))
+				if (this->Sizq.getGlobalBounds().contains(mousePosF))
 				{
-					TriviaSelect choose;
-					window.close();
-					choose.loadScreen_TS();
+					RenderWindow window;
+					Recorrido choose;
+					choose.loadQScreen_R(ventana);
 				}
-				else if (this->text2.getGlobalBounds().contains(mousePosF))
+				else if (this->Sder.getGlobalBounds().contains(mousePosF))
 				{
-					TriviaSelect choose;
-					window.close();
-					choose.loadScreen_TS();
+					RenderWindow window;
+					Recorrido choose;
+					choose.loadQScreen_R(ventana);
 
 				}
 
@@ -64,12 +69,19 @@ void elegirBando::loadScreen_B()
 
 		}
 
-		window.clear(Color::Black);
-		window.draw(this->bgBando);
-		window.draw(this->text1);
-		window.draw(this->text2);
-		window.draw(this->mensj);
-		window.display();
+		renderB(ventana);
 	}
 
+}
+
+void elegirBando::renderB(RenderWindow& ventana)
+{
+	ventana.clear(Color::Black);
+	ventana.draw(this->bgBando);
+	ventana.draw(this->text1);
+	ventana.draw(this->text2);
+	ventana.draw(this->Sizq);
+	ventana.draw(this->Sder);
+	ventana.draw(this->mensj);
+	ventana.display();
 }

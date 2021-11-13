@@ -1,14 +1,12 @@
 #pragma once
-
 #ifndef SELECTPUERTAS_H
 #define SELECTPUERTAS_H
-
+//COMMIT
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 using namespace sf;
-
-class selectPuertas {
-
+class selectPuertas
+{
 public:
 	selectPuertas(RenderWindow& ventana);
 
@@ -16,10 +14,10 @@ private:
 	void loadSprites();
 	void render(RenderWindow& ventana);
 	bool recuadro = false;
-	
-	Sprite	puerta1,	puerta2,	puerta3,	puerta4,	fondo;
-	Texture	puertaA,	puertaB,	puertaC,	puertaD,	fondoT;
-	Text	select,	A,	B,	C,	D;
+
+	Sprite	puerta1, puerta2, puerta3, puerta4, fondo;
+	Texture	puertaA, puertaB, puertaC, puertaD, fondoT;
+	Text	select, A, B, C, D;
 	Font	fuente;
 
 	RectangleShape	cuadro;
@@ -27,7 +25,5 @@ private:
 	Event evento;
 
 };
-
 #endif // !SELECTPUERTAS_H
-
 

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include"Question.h"
 #include<random>
-
+//
 Question question;
 Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
 {
@@ -13,7 +13,7 @@ Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
 	if (!this->fuente.loadFromFile("Resources/CurlyLetters.ttf"))
 	{
 	}
-	
+
 	texto.setString(question.q[question.getQuestion()][0]);
 	// Asignamos la fuente que hemos cargado al texto
 	texto.setFont(fuente);
@@ -95,6 +95,7 @@ void Game::run()
 		processEvents();
 		update(deltaTime);
 		render();
+
 	}
 }
 
@@ -124,16 +125,17 @@ void Game::processEvents()
 					{
 						//GANADORRRR
 						spr_globos[i].setColor(sf::Color::Cyan);
-						
-					}else{
+
+					}
+					else {
 						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
 
 						}
 						spr_globos[i].setTexture(tex_globos[i]);
 					}
-					
 
-					
+
+
 				}
 			}
 
@@ -192,4 +194,3 @@ void Game::handlePlayerInput(sf::Keyboard::Key key,
 	else if (key == sf::Keyboard::D)
 		mIsMovingRight = isPressed;
 }
-

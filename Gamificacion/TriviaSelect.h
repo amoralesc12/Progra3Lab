@@ -1,7 +1,7 @@
 #pragma once
 #ifndef TRIVIASELECT_H
 #define TRIVIASELECT_H
-
+//COMMIT
 #include "SFML/Graphics.hpp"
 
 using namespace sf;
@@ -9,9 +9,10 @@ class TriviaSelect
 {
 public:
 	void loadSprites_TS();
-	void loadScreen_TS();
+	void loadScreen_TS(RenderWindow& ventana);
 	void loadQuestionBoxScreen_TS();
 	void loadQuestionBoxSprites_TS();
+	void renderTS(RenderWindow& ventana);
 
 private:
 
