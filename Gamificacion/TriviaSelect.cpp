@@ -50,7 +50,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				if (this->qb1.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen_TS();
+					choose.loadWrongBoxScreen_TS(ventana);
 				}
 				else if (this->qb2.getGlobalBounds().contains(mousePosF))
 				{
@@ -61,13 +61,13 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				else if (this->qb3.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen_TS();
+					choose.loadWrongBoxScreen_TS(ventana);
 
 				}
 				else if (this->qb4.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen_TS();
+					choose.loadWrongBoxScreen_TS(ventana);
 
 				}
 				else if (this->qb5.getGlobalBounds().contains(mousePosF))
@@ -85,7 +85,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				else if (this->qb7.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen_TS();
+					choose.loadWrongBoxScreen_TS(ventana);
 
 				}
 				else if (this->qb8.getGlobalBounds().contains(mousePosF))
@@ -113,7 +113,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 }
 void TriviaSelect::loadQuestionBoxScreen_TS()
 {
-	RenderWindow window(VideoMode(900, 500), "Open Box", Style::Titlebar | Style::Close);
+	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadQuestionBoxSprites_TS();
 
@@ -125,9 +125,7 @@ void TriviaSelect::loadQuestionBoxScreen_TS()
 
 		}
 
-		window.clear(Color::Black);
-		window.draw(this->pregunEj);
-		window.draw(this->respEj);
+		window.draw(this->QuestionS);
 		
 
 
@@ -137,19 +135,78 @@ void TriviaSelect::loadQuestionBoxScreen_TS()
 }
 void TriviaSelect::loadQuestionBoxSprites_TS()
 {
-	if (!pEj.loadFromFile("Resources/ejemP.png")) { cout << "NO ESTA"; }
-	if (!rEj.loadFromFile("Resources/ejemR.png")) { cout << "NO ESTA"; }
+	if (!qs.loadFromFile("Resources/Questions.jpg")) { cout << "NO ESTA"; }
+	
+	QuestionS.setTexture(qs);
+	QuestionS.setPosition(0, 0);
+}
 
-	pregunEj.setTexture(pEj);
-	pregunEj.setPosition(10, 20);
+void TriviaSelect::loadWrongBoxSprites_TS()
+{
+	if (!ws.loadFromFile("Resources/WrongQ.png")) { cout << "NO ESTA"; }
+	if (!fuente.loadFromFile("Resources/CurlyLetters.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	
+	wrongS.setTexture(ws);
+	wrongS.setPosition(0, 0);
 
-	respEj.setTexture(rEj);
-	respEj.setPosition(75, 100);
+	message = Text();
+	message.setString("\t\t\t\t\tESTA CAJA ESTA VACIA!\n"
+		" Recuerda que para este juego solo tienes 4 oportunidades\n"
+		"para poder obtener mas vidas para el proximo nivel");
 
+	message.setFont(fuente);
+	message.setFillColor(Color::Black);
+	message.setPosition(40,100);
+	message.setCharacterSize(37);
+
+	tryagain.setString("Intentalo de nuevo!");
+	tryagain.setFont(fuente);
+	tryagain.setFillColor(Color::Black);
+	tryagain.setPosition(500,325);
+	tryagain.setCharacterSize(44);
+
+
+}
+
+void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana)
+{
+	RenderWindow window(VideoMode(900, 500), "Empty Box", Style::Titlebar | Style::Close);
+	window.setFramerateLimit(60);
+	loadWrongBoxSprites_TS();
+	Vector2i mousePos = Mouse::getPosition();
+	Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+	while (window.isOpen()) {
+		Vector2i mousePos = Mouse::getPosition();
+		Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+		while (window.pollEvent(this->evento)) {
+			if (this->evento.type == Event::Closed) {
+				window.close();
+			}
+			if (this->evento.type == Event::MouseButtonPressed) {
+
+				if (this->tryagain.getGlobalBounds().contains(mousePosF))
+				{
+					TriviaSelect choose;
+					window.close();
+					choose.loadScreen_TS(ventana);
+				}
+
+			}
+
+			window.draw(this->wrongS);
+			window.draw(this->message);
+			window.draw(this->tryagain);
+
+
+			window.display();
+		}
+
+	}
 }
 void TriviaSelect::renderTS(RenderWindow& ventana)
 {
-	ventana.clear(Color::Black);
+	
 	ventana.draw(this->bgN1);
 	ventana.draw(this->qb1);
 	ventana.draw(this->qb2);
