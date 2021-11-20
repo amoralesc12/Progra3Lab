@@ -20,6 +20,7 @@ private:
 	Sprite fondo; Texture fondoTexture;
 	Sprite carta; Texture cartaTexture;
 	Event evento;
+	Music narracionM;
 
 	Font fuente;
 	Text narracion, continuar;

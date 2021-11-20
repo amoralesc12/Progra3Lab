@@ -33,7 +33,7 @@ void TriviaSelect::loadSprites_TS() {
 
 }
 
-void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
+void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 
 	loadSprites_TS();
 
@@ -50,7 +50,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				if (this->qb1.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana);
+					choose.loadWrongBoxScreen_TS(ventana, musica);
 				}
 				else if (this->qb2.getGlobalBounds().contains(mousePosF))
 				{
@@ -61,13 +61,13 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				else if (this->qb3.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana);
+					choose.loadWrongBoxScreen_TS(ventana, musica);
 
 				}
 				else if (this->qb4.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana);
+					choose.loadWrongBoxScreen_TS(ventana, musica);
 
 				}
 				else if (this->qb5.getGlobalBounds().contains(mousePosF))
@@ -85,7 +85,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				else if (this->qb7.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana);
+					choose.loadWrongBoxScreen_TS(ventana, musica);
 
 				}
 				else if (this->qb8.getGlobalBounds().contains(mousePosF))
@@ -100,7 +100,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana) {
 				if (evento.key.code == Keyboard::C) {
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R1(ventana);
+					choose.loadQScreen_R1(ventana, musica);
 				}
 			}
 			
@@ -168,7 +168,7 @@ void TriviaSelect::loadWrongBoxSprites_TS()
 
 }
 
-void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana)
+void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica)
 {
 	RenderWindow window(VideoMode(900, 500), "Empty Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -189,7 +189,7 @@ void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana)
 				{
 					TriviaSelect choose;
 					window.close();
-					choose.loadScreen_TS(ventana);
+					choose.loadScreen_TS(ventana, musica);
 				}
 
 			}

@@ -6,6 +6,7 @@
 #include "Recorrido.h"
 #include <iostream>
 #include <cstdlib>
+
 //COMMIT
 using std::cout;
 
@@ -22,6 +23,19 @@ void selectPuertas::loadSprites() {
 	select.setString("Selecciona una puerta y veras el mundo de sabiduria...");
 	select.setPosition(60, 70);
 	select.setCharacterSize(40);
+
+	for (int i = 0; i < 4; i++) {
+		Resp[i].setFont(fuente);
+		Resp[i].setCharacterSize(30);
+	}
+	Resp[0].setPosition(120, 240);
+	Resp[1].setPosition(480, 240);
+	Resp[2].setPosition(120, 400);
+	Resp[3].setPosition(480, 400);
+
+	pregunta.setFont(fuente);
+	pregunta.setPosition(90, 90);
+	pregunta.setCharacterSize(23);
 
 	A.setFont(fuente);
 	A.setString("1");
@@ -83,12 +97,18 @@ void selectPuertas::render(RenderWindow& ventana) {
 	ventana.draw(this->C);
 	ventana.draw(this->D);
 	if (recuadro) {
+		
 		ventana.draw(this->cuadro);
+		ventana.draw(pregunta);
+		for (int i = 0; i < 4; i++) {
+			ventana.draw(Resp[i]);
+		}
+
 	}
 	ventana.display();
 }
 
-selectPuertas::selectPuertas(RenderWindow& ventana) {
+selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 
 	Cursor hand; hand.loadFromSystem(Cursor::Hand);
 	Cursor def; def.loadFromSystem(Cursor::Arrow);
@@ -117,16 +137,19 @@ selectPuertas::selectPuertas(RenderWindow& ventana) {
 					if (puerta1.getGlobalBounds().contains(mousePosF) || puerta2.getGlobalBounds().contains(mousePosF) ||
 						puerta3.getGlobalBounds().contains(mousePosF) || puerta4.getGlobalBounds().contains(mousePosF)) {
 						recuadro = true;
+						pregunta.setString(quest.q[quest.getQuestion()][0]);
+						for (size_t i = 0; i < 4; i++) {
+							string temporal;
+							Resp[i].setString(std::to_string(i+1) + " " + quest.q[quest.temF][i + 1]);
+						}
 						ventana.setMouseCursor(def);
-
-
 					}
 				}
 				if (evento.type == Event::KeyPressed) {
-					if (evento.key.code == Keyboard::A) {
+					if (evento.key.code == Keyboard::Escape) {
 						RenderWindow window;
 						elegirBando choose;
-						choose.loadScreen_B(ventana);
+						choose.loadScreen_B(ventana, musica);
 					}
 				}
 			}

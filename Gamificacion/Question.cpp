@@ -38,7 +38,7 @@ Question::Question() {
 	this->q[3][6] = "0";
 
 
-	this->q[4][0] = " Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido llevados a la pantalla en los comics de : ";
+	this->q[4][0] = "Cuatro genios del renacimiento (Leonardo, Donatello, Rafael y Michelangelo) han sido llevados a la pantalla en los comics de : ";
 	this->q[4][1] = "Las tortugas ninjas";
 	this->q[4][2] = "Los caballeros del Zodiaco";
 	this->q[4][3] = "Los cuatro fantasticos";
@@ -47,7 +47,7 @@ Question::Question() {
 	this->q[4][6] = "0";
 
 
-	this->q[5][0] = " Durante el renacimiento, el modelo de gobierno es uno de los siguientes:";
+	this->q[5][0] = "Durante el renacimiento, el modelo de gobierno es uno de los siguientes:";
 	this->q[5][1] = "Monarquia absoluta";
 	this->q[5][2] = "Tiranía republicana";
 	this->q[5][3] = "Democracia participativa";
@@ -78,6 +78,7 @@ Question::Question() {
 	this->q[8][4] = " Erasmo de Rotterdam";
 	this->q[8][5] = "2";
 	this->q[8][6] = "1";
+
 	this->q[9][0] = "Terminada la edad media, en el contexto de la politica resulta que:";
 	this->q[9][1] = "La Iglesia resalta su poder";
 	this->q[9][2] = "La Iglesia pierde el papel rector en la politica";

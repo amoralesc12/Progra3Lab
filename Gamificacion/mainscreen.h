@@ -12,7 +12,7 @@ class mainscreen
 public:
 	void pantallaInicial();
 	void loadSprites();
-	Music& refMusica();
+
 private:
 
 	Sprite bgInicio; Texture fondoInicial;

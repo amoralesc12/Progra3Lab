@@ -24,7 +24,7 @@ void Recorrido::loadSprites_R()
 	r2bg.setPosition(0, 0);*/
 }
 // Primer recorrido despues de la seleccion de puertas
-void Recorrido::loadQScreen_R(RenderWindow& ventana)
+void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
 {
 	loadSprites_R();
 
@@ -37,7 +37,7 @@ void Recorrido::loadQScreen_R(RenderWindow& ventana)
 				if (evento.key.code == Keyboard::B) {
 					RenderWindow window;
 					TriviaSelect choose;
-					choose.loadScreen_TS(ventana);
+					choose.loadScreen_TS(ventana, musica);
 				}
 			}
 			
@@ -55,7 +55,7 @@ void Recorrido::renderR(RenderWindow& ventana)
 }
 
 // Recorrido despues de trivia select
-void Recorrido::loadQScreen_R1(RenderWindow& ventana)
+void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
 {
 	loadSprites_R();
 
@@ -67,8 +67,8 @@ void Recorrido::loadQScreen_R1(RenderWindow& ventana)
 			if (evento.type == Event::KeyPressed) {
 				if (evento.key.code == Keyboard::D) {
 					RenderWindow window;
-					Game choose;
-					choose.run();
+					Game choose(ventana);
+					choose.run(ventana, musica);
 				}
 			}
 

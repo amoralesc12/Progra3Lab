@@ -14,8 +14,10 @@ void IntroLvl::loadSprites(Music& musica) {
 	if (!cartaTexture.loadFromFile("Resources/Carta.png")) { cout << "NO ESTA LA IMAGEN CARTA"; }
 	if (!fuente.loadFromFile("Resources/CurlyLetters.ttf")) { cout << "NO ESTA LA FUENTE"; }
 	if (!musica.openFromFile("Resources/Musica2.ogg")) { cout << "NO ESTA LA MUSICA!"; }
+	if (!narracionM.openFromFile("Resources/Narracion.ogg")) { cout << "NO ESTA LA MUSICA!"; }
 
 	musica.play();
+	narracionM.play();
 
 	//setting Sprites with textures
 	this->fondo.setTexture(this->fondoTexture);
@@ -114,13 +116,15 @@ void IntroLvl::pantalla(RenderWindow& window, Music& musica) {
 			if (this->evento.type == Event::MouseButtonPressed) {
 				speedUp = 8;
 				if (this->narracion.getPosition().y < -3200) {
+					narracionM.stop();
 					window.clear();
-					selectPuertas puertas(window);
+					selectPuertas puertas(window, musica);
 				}
 			}
 			if (this->evento.key.code == Keyboard::Escape) {
+				narracionM.stop();
 				window.clear();
-				selectPuertas puertas(window);
+				selectPuertas puertas(window, musica);
 			}
 			if (evento.type == Event::MouseButtonReleased) {
 				speedUp = 1;
