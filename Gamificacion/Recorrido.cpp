@@ -10,8 +10,8 @@ using namespace std;
 
 void Recorrido::loadSprites_R()
 {
-	if (!bg.loadFromFile("Resources/recorrido1.png")) { cout << "NO ESTA"; }
-	if (!bg1.loadFromFile("Resources/recorrido2.png")) { cout << "NO ESTA"; }
+	if (!bg.loadFromFile("Resources/r.png")) { cout << "NO ESTA"; }
+	if (!bg1.loadFromFile("Resources/r.png")) { cout << "NO ESTA"; }
 	//if (!bg.loadFromFile("Resources/recorrido1.png")) { cout << "NO ESTA"; }
 
 	rbg.setTexture(bg);
