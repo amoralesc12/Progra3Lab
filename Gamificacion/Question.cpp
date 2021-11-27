@@ -3,7 +3,7 @@
 #include <ctime>
 //COMMIT
 using namespace std;
-Question::Question() {
+ Question::Question() {
 	this->q[0][0] = "Uno de los siguientes personajes fue el encargado de pintar la capilla Sixtina:";
 
 	this->q[0][1] = "Miguel Angel";
