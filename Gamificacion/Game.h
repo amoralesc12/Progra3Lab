@@ -1,20 +1,22 @@
 #pragma once
 #ifndef GAME_H
 #define GAME_H
-
+//COMMIT
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <array>
 
+using namespace sf;
 class Game
 {
 public:
-	Game();
-	void run();
+	Game(RenderWindow& mWindow);
+	void run(RenderWindow& mWindow, Music& musica);
 private:
-	void processEvents();
+	void processEvents(RenderWindow& mWindow, Music& musica);
 	//void update();
 	void update(sf::Time);
-	void render();
+	void render(RenderWindow& mWindow, Music& musica);
 	void handlePlayerInput(sf::Keyboard::Key, bool);
 	bool mIsMovingUp, mIsMovingDown, mIsMovingLeft, mIsMovingRight;
 	float PlayerSpeed;
@@ -23,7 +25,6 @@ private:
 
 
 private:
-	sf::RenderWindow mWindow;
 	//sf::CircleShape mPlayer;
 	sf::Time TimePerFrame;
 	std::array< sf::Texture, 4>tex_globos;
@@ -34,6 +35,7 @@ private:
 	sf::Sprite spr_Ground;
 	sf::Text texto;
 	sf::Font fuente;
+	sf::Music musica;
 };
 
 #endif // GAME_H

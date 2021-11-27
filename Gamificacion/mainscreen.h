@@ -1,7 +1,7 @@
 #pragma once
 #ifndef MAINSCREEN_H
 #define MAINSCREEN_H
-
+//COMMIT
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 
@@ -12,7 +12,7 @@ class mainscreen
 public:
 	void pantallaInicial();
 	void loadSprites();
-	Music& refMusica();
+
 private:
 
 	Sprite bgInicio; Texture fondoInicial;

@@ -1,15 +1,16 @@
 #pragma once
 #ifndef ELEGIR_BANDO_H
 #define ELEGIR_BANDO_H
-
+//COMMIT
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 using namespace sf;
 class elegirBando
 {
 public:
 
-	void loadScreen_B(RenderWindow& ventana);
+	void loadScreen_B(RenderWindow& ventana, Music& musica);
 private:
 	void renderB(RenderWindow& ventana);
 

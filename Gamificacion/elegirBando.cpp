@@ -37,7 +37,7 @@ void elegirBando::addingSprites_B() {
 	mensj.setPosition(10, 50);
 }
 
-void elegirBando::loadScreen_B(RenderWindow& ventana)
+void elegirBando::loadScreen_B(RenderWindow& ventana, Music& musica)
 {
 	addingSprites_B();
 
@@ -55,13 +55,13 @@ void elegirBando::loadScreen_B(RenderWindow& ventana)
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana);
+					choose.loadQScreen_R(ventana, musica);
 				}
 				else if (this->Sder.getGlobalBounds().contains(mousePosF))
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana);
+					choose.loadQScreen_R(ventana, musica);
 
 				}
 

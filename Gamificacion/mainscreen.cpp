@@ -3,6 +3,7 @@
 #include"mainscreen.h"
 #include "TriviaSelect.h"
 #include "elegirBando.h"
+#include "PrisonEscape.h"
 #include "IntroLvl.h"
 #include<iostream>
 using std::cout;
@@ -35,12 +36,6 @@ void mainscreen::loadSprites() {
 	this->Bsalir.setTexture(this->salir);
 	this->Bsalir.setPosition(560, 515);
 }
-
-Music& mainscreen::refMusica()
-{
-	return musica;
-}
-;
 
 void mainscreen::pantallaInicial() {
 

@@ -4,10 +4,11 @@
 #include <ctime>
 #include <stdio.h>
 #include"Question.h"
+#include "PrisonEscape.h"
 #include<random>
 //
 Question question;
-Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
+Game::Game(RenderWindow& mWindow)
 {
 	//
 	if (!this->fuente.loadFromFile("Resources/CurlyLetters.ttf"))
@@ -29,8 +30,6 @@ Game::Game() : mWindow(sf::VideoMode(1000, 700), "Revienta los Globos")
 
 
 	spr_Ground.setPosition(0.f, 0.f);//FONDO
-
-	mWindow.setFramerateLimit(60);//DELIMITAR FPS
 
 	//this->TimePerFrame = sf::seconds(1.f / 60.f);
 	load_graphs();
@@ -86,20 +85,20 @@ void Game::load_graphs() {
 	spr_Pointer.setPosition(300.f, 200.f);
 	//spr_Pointer.setScale(sf::Vector2f(0.8, 0.8));
 }
-void Game::run()
+void Game::run(RenderWindow& mWindow, Music& musica)
 {
 	sf::Clock clock;
 	while (mWindow.isOpen())
 	{
 		sf::Time deltaTime = clock.getElapsedTime();
-		processEvents();
+		processEvents(mWindow, musica);
 		update(deltaTime);
-		render();
+		render(mWindow, musica);
 
 	}
 }
 
-void Game::processEvents()
+void Game::processEvents(RenderWindow& mWindow, Music& musica)
 {
 	sf::FloatRect rect(spr_Pointer.getPosition(), (sf::Vector2f)spr_Pointer.getTexture()->getSize());
 
@@ -125,7 +124,7 @@ void Game::processEvents()
 					{
 						//GANADORRRR
 						spr_globos[i].setColor(sf::Color::Cyan);
-
+						PrisonEscape escape(mWindow, musica);
 					}
 					else {
 						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
@@ -166,7 +165,7 @@ if (mIsMovingUp)
 
 }
 
-void Game::render()
+void Game::render(RenderWindow& mWindow, Music& musica)
 {
 	mWindow.clear();
 

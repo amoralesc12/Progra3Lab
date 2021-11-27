@@ -2,20 +2,21 @@
 #ifndef TRIVIASELECT_H
 #define TRIVIASELECT_H
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 using namespace sf;
 class TriviaSelect
 {
 public:
 	void loadSprites_TS();
-	void loadScreen_TS(RenderWindow& ventana);
+	void loadScreen_TS(RenderWindow& ventana, Music& musica);
 	void loadQuestionBoxScreen_TS();
 	void loadQuestionBoxSprites_TS();
 	void renderTS(RenderWindow& ventana);
 
 	//Try Again! Screen
 
-	void loadWrongBoxScreen_TS(RenderWindow& ventana);
+	void loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica);
 	void loadWrongBoxSprites_TS();
 
 private:
