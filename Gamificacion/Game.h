@@ -36,6 +36,7 @@ private:
 	sf::Text texto;
 	sf::Font fuente;
 	sf::Music musica;
+	Event evento;
 };
 
 #endif // GAME_H

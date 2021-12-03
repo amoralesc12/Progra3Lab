@@ -152,6 +152,7 @@
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Recorrido.cpp" />
     <ClCompile Include="selectPuertas.cpp" />
+    <ClCompile Include="TextArea.cpp" />
     <ClCompile Include="TriviaSelect.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainscreen.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Question.h" />
     <ClInclude Include="Recorrido.h" />
     <ClInclude Include="selectPuertas.h" />
+    <ClInclude Include="TextArea.h" />
     <ClInclude Include="TriviaSelect.h" />
     <ClInclude Include="mainscreen.h" />
   </ItemGroup>

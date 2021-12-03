@@ -97,7 +97,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 
 			}
 			if (evento.type == Event::KeyPressed) {
-				if (evento.key.code == Keyboard::C) {
+				if (evento.key.code == Keyboard::Escape) {
 					RenderWindow window;
 					Recorrido choose;
 					choose.loadQScreen_R1(ventana, musica);
@@ -134,12 +134,15 @@ void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadQuestionBoxSprites_TS();
-	Vector2i mousePos = Mouse::getPosition();
-	Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+	/*Vector2i mousePos = Mouse::getPosition();
+	Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));*/
 
 
 	while (window.isOpen()) {
 		while (window.pollEvent(this->evento)) {
+			Vector2i mousePos = Mouse::getPosition();
+			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
 			if (this->evento.type == Event::Closed) {
 				window.close();
 			}

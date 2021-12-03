@@ -23,7 +23,7 @@ void Recorrido::loadSprites_R()
 	/*r2bg.setTexture(bg);
 	r2bg.setPosition(0, 0);*/
 }
-// Primer recorrido despues de la seleccion de puertas
+// Primer recorrido despues de elegir bando
 void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
 {
 	loadSprites_R();
@@ -34,10 +34,11 @@ void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
 			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
 			if (evento.type == Event::KeyPressed) {
-				if (evento.key.code == Keyboard::B) {
+				if (evento.key.code == Keyboard::Escape) {
+				
 					RenderWindow window;
-					TriviaSelect choose;
-					choose.loadScreen_TS(ventana, musica);
+					Game choose(ventana);
+					choose.run(ventana, musica);
 				}
 			}
 			
@@ -54,7 +55,7 @@ void Recorrido::renderR(RenderWindow& ventana)
 	ventana.display();
 }
 
-// Recorrido despues de trivia select
+// Recorrido despues del juego de globos
 void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
 {
 	loadSprites_R();
@@ -65,10 +66,11 @@ void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
 			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
 			if (evento.type == Event::KeyPressed) {
-				if (evento.key.code == Keyboard::D) {
+				if (evento.key.code == Keyboard::Escape) {
 					RenderWindow window;
-					Game choose(ventana);
-					choose.run(ventana, musica);
+					TriviaSelect choose;
+					choose.loadScreen_TS(ventana, musica);
+					
 				}
 			}
 
@@ -85,7 +87,7 @@ void Recorrido::renderR1(RenderWindow& ventana)
 	ventana.display();
 }
 
-// Recorrido despues de Game(Juego de globos)
+// Recorrido despues de Trivia Select / FALTA CAMBIAR
 //void Recorrido::loadQScreen_R2(RenderWindow& ventana)
 //{
 //	loadSprites_R();
