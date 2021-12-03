@@ -30,6 +30,8 @@ public:
 	void loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica);
 	void loadQuestionBoxSprites4_TS();
 
+	
+	
 private:
 
 	Sprite bgN1, qb1, qb2,qb3,qb4,qb5,qb6,qb7,qb8;
@@ -45,6 +47,7 @@ private:
 
 };
 #endif // !TRIVIASELECT_H
+
 
 
 

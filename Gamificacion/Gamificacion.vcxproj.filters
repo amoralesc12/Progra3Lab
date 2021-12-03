@@ -45,6 +45,9 @@
     <ClCompile Include="PrisonEscape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainscreen.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PrisonEscape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextArea.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
