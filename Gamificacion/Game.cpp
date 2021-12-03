@@ -1,10 +1,11 @@
 #include "Game.h"
+#include "Recorrido.h"
 #include<iostream>
 #include <stdlib.h> 
 #include <ctime>
 #include <stdio.h>
 #include"Question.h"
-#include "PrisonEscape.h"
+#include "TriviaSelect.h"
 #include<random>
 //
 Question question;
@@ -88,13 +89,12 @@ void Game::load_graphs() {
 void Game::run(RenderWindow& mWindow, Music& musica)
 {
 	sf::Clock clock;
-	while (mWindow.isOpen())
-	{
+	while (mWindow.isOpen()){
 		sf::Time deltaTime = clock.getElapsedTime();
 		processEvents(mWindow, musica);
 		update(deltaTime);
 		render(mWindow, musica);
-
+		
 	}
 }
 
@@ -124,7 +124,9 @@ void Game::processEvents(RenderWindow& mWindow, Music& musica)
 					{
 						//GANADORRRR
 						spr_globos[i].setColor(sf::Color::Cyan);
-						PrisonEscape escape(mWindow, musica);
+						
+						TriviaSelect choose;
+						choose.loadScreen_TS(mWindow, musica);
 					}
 					else {
 						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {
