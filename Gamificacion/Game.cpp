@@ -101,6 +101,7 @@ void Game::run(RenderWindow& mWindow, Music& musica)
 void Game::processEvents(RenderWindow& mWindow, Music& musica)
 {
 	sf::FloatRect rect(spr_Pointer.getPosition(), (sf::Vector2f)spr_Pointer.getTexture()->getSize());
+	sf::Cursor def; def.loadFromSystem(sf::Cursor::Arrow);
 
 	sf::Event event;
 	while (mWindow.pollEvent(event))
@@ -126,6 +127,8 @@ void Game::processEvents(RenderWindow& mWindow, Music& musica)
 						spr_globos[i].setColor(sf::Color::Cyan);
 						
 						TriviaSelect choose;
+						mWindow.setMouseCursor(def);
+						mWindow.setMouseCursorVisible(true);
 						choose.loadScreen_TS(mWindow, musica);
 					}
 					else {
