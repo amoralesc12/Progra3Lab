@@ -31,26 +31,28 @@ void TextArea::setLimit(int max)
 void TextArea::justify()
 {
 	string str = texto.getString();
-	string stPaso = "";
-	int actual = 0;
-	int siguiente = 1;
-	bool salto = false;
-	while (actual < str.length())
-	{
-		const char* letra = &str.at(actual);
-		if (actual % limit == 0 && actual != 0)
-			salto = true;
-		if (salto && str.at(siguiente) == ' ') {
-			stPaso.append(letra, 1);
-			stPaso.append("\n");
-			salto = false;
+	if (str.length() > limit) {
+		string stPaso = "";
+		int actual = 0;
+		int siguiente = 1;
+		bool salto = false;
+		while (!(actual >= str.length()) && str.at(actual) != '\0')
+		{
+			const char* letra = &str.at(actual);
+			if (actual % limit == 0 && actual != 0)
+				salto = true;
+			if (salto && str.at(siguiente) == ' ') {
+				stPaso.append(letra, 1);
+				stPaso.append("\n");
+				salto = false;
+			}
+			else
+				stPaso.append(letra, 1);
+			actual++;
+			siguiente++;
 		}
-		else
-			stPaso.append(letra, 1);
-		actual++;
-		siguiente++;
+		texto.setString(stPaso);
 	}
-	texto.setString(stPaso);
 }
 
 void TextArea::setPosition(float x, float y)

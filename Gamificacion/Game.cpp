@@ -86,19 +86,19 @@ void Game::load_graphs() {
 	spr_Pointer.setPosition(300.f, 200.f);
 	//spr_Pointer.setScale(sf::Vector2f(0.8, 0.8));
 }
-void Game::run(RenderWindow& mWindow, Music& musica)
+void Game::run(RenderWindow& mWindow, Music& musica, int puntos)
 {
 	sf::Clock clock;
 	while (mWindow.isOpen()){
 		sf::Time deltaTime = clock.getElapsedTime();
-		processEvents(mWindow, musica);
+		processEvents(mWindow, musica, puntos);
 		update(deltaTime);
 		render(mWindow, musica);
 		
 	}
 }
 
-void Game::processEvents(RenderWindow& mWindow, Music& musica)
+void Game::processEvents(RenderWindow& mWindow, Music& musica, int puntos)
 {
 	sf::FloatRect rect(spr_Pointer.getPosition(), (sf::Vector2f)spr_Pointer.getTexture()->getSize());
 	sf::Cursor def; def.loadFromSystem(sf::Cursor::Arrow);
@@ -129,7 +129,7 @@ void Game::processEvents(RenderWindow& mWindow, Music& musica)
 						TriviaSelect choose;
 						mWindow.setMouseCursor(def);
 						mWindow.setMouseCursorVisible(true);
-						choose.loadScreen_TS(mWindow, musica);
+						choose.loadScreen_TS(mWindow, musica, puntos);
 					}
 					else {
 						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {

@@ -25,7 +25,7 @@ void Recorrido::loadSprites_R()
 	r2bg.setPosition(0, 0);
 }
 // Primer recorrido despues de elegir bando
-void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
+void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica, int puntos)
 {
 	loadSprites_R();
 
@@ -39,7 +39,7 @@ void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
 				
 					RenderWindow window;
 					Game choose(ventana);
-					choose.run(ventana, musica);
+					choose.run(ventana, musica, puntos);
 				}
 			}
 			
@@ -57,7 +57,7 @@ void Recorrido::renderR(RenderWindow& ventana)
 }
 
 // Recorrido despues del juego de globos
-void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
+void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica, int puntos)
 {
 	loadSprites_R();
 
@@ -70,7 +70,7 @@ void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
 				if (this->r1bg.getGlobalBounds().contains(mousePosF)) {
 					RenderWindow window;
 					TriviaSelect choose;
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 					
 				}
 			}
@@ -89,7 +89,7 @@ void Recorrido::renderR1(RenderWindow& ventana)
 }
 
 // Recorrido despues de Trivia Select
-void Recorrido::loadQScreen_R2(RenderWindow& ventana,Music& musica)
+void Recorrido::loadQScreen_R2(RenderWindow& ventana,Music& musica, int puntos)
 {
 	loadSprites_R();
 
@@ -101,7 +101,7 @@ void Recorrido::loadQScreen_R2(RenderWindow& ventana,Music& musica)
 			if (evento.type == Event::MouseButtonPressed) {
 				if (this->r2bg.getGlobalBounds().contains(mousePosF)) {
 					RenderWindow window;
-					PrisonEscape PrisonEscape(ventana, musica);
+					PrisonEscape PrisonEscape(ventana, musica, puntos);
 					
 				
 				}

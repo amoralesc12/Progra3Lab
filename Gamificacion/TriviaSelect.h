@@ -11,24 +11,24 @@ class TriviaSelect
 public:
 	//MAIN SCREEN
 	void loadSprites_TS();
-	void loadScreen_TS(RenderWindow& ventana, Music& musica);
+	void loadScreen_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void renderTS(RenderWindow& ventana);
 
 	//Try Again! Screen
-	void loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica);
+	void loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void loadWrongBoxSprites_TS();
 	
 	//QUESTIONS & OPTIONS
-	void loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica);
+	void loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void loadQuestionBoxSprites_TS();
 
-	void loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& musica);
+	void loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void loadQuestionBoxSprites2_TS();
 
-	void loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& musica);
+	void loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void loadQuestionBoxSprites3_TS();
 
-	void loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica);
+	void loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void loadQuestionBoxSprites4_TS();
 
 	/*int clockTimer();

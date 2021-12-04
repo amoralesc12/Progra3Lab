@@ -26,7 +26,7 @@ void selectPuertas::loadSprites() {
 
 	for (int i = 0; i < 4; i++) {
 		Resp[i].setFont(fuente);
-		Resp[i].setCharacterSize(30);
+		Resp[i].setCharacterSize(20);
 	}
 	Resp[0].setPosition(120, 240);
 	Resp[1].setPosition(480, 240);
@@ -35,7 +35,8 @@ void selectPuertas::loadSprites() {
 
 	pregunta.setFont(fuente);
 	pregunta.setPosition(90, 90);
-	pregunta.setCharacterSize(23);
+	pregunta.setLimit(80);
+	pregunta.setTextSize(23);
 
 	A.setFont(fuente);
 	A.setString("1");
@@ -99,8 +100,9 @@ void selectPuertas::render(RenderWindow& ventana) {
 	if (recuadro) {
 		
 		ventana.draw(this->cuadro);
-		ventana.draw(pregunta);
+		pregunta.draw(ventana);
 		for (int i = 0; i < 4; i++) {
+			//Resp[i].draw(ventana);
 			ventana.draw(Resp[i]);
 		}
 
@@ -116,15 +118,21 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 	loadSprites();
 
 	while (ventana.isOpen()) {
+		Vector2i mousePos = Mouse::getPosition(ventana);
+		Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
 		while (ventana.pollEvent(this->evento)) {
-			Vector2i mousePos = Mouse::getPosition(ventana);
-			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
 			if (this->evento.type == Event::Closed) {
 				ventana.close();
 			}
 
 			if (!recuadro) {
+				if (puntos >= 700) {
+					RenderWindow window;
+					elegirBando choose;
+					choose.loadScreen_B(ventana, musica, puntos);
+				}
 				if (evento.type == Event::MouseMoved) {
 					if (puerta1.getGlobalBounds().contains(mousePosF) || puerta2.getGlobalBounds().contains(mousePosF) ||
 						puerta3.getGlobalBounds().contains(mousePosF) || puerta4.getGlobalBounds().contains(mousePosF)) {
@@ -149,7 +157,7 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 					if (evento.key.code == Keyboard::Escape) {
 						RenderWindow window;
 						elegirBando choose;
-						choose.loadScreen_B(ventana, musica);
+						choose.loadScreen_B(ventana, musica, puntos);
 					}
 				}
 			}
@@ -157,6 +165,25 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 				if (evento.type == Event::KeyPressed) {
 					if (evento.key.code == Keyboard::Escape) {
 						recuadro = false;
+						cuadro.setFillColor(Color(21, 53, 58, 255));
+					}
+				}
+				if (this->evento.type == Event::MouseButtonPressed) {
+					for (int i = 0; i < 4; i++)
+					{
+						if (Resp[i].getGlobalBounds().contains(mousePosF))
+						{
+							//spr_globos[i].setColor(sf::Color(250, 0, 0));
+							if (quest.getResp() == i)
+							{
+								//GANADORRRR
+								cuadro.setFillColor(Color::Green);
+								puntos += 200;
+							}
+							else {
+								cuadro.setFillColor(Color::Red);
+							}
+						}
 					}
 				}
 			}

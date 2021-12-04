@@ -13,16 +13,19 @@ class PrisonEscape
 {
 
 public:
-	PrisonEscape(RenderWindow& ventana, Music& musica);
+	PrisonEscape(RenderWindow& ventana, Music& musica, int puntos);
 
 private:
 	void render(RenderWindow& ventana);
-	int num = 2; int alter = 3;
+	int num = 2; int alter = 3; int puntVida;
+	bool gameOver = false;
 	Clock clock;
-	void loadSprites(Music&);
+	void loadSprites(Music&, int puntos);
 	Music	sfx;
-	Sprite	fondo,		fuegoSec,	fuegoMSec,	fuegoM2Sec;
-	Texture fondoTex,	fuegoTex,	fuegoMTex,	fuegoM2Tex;
+	Text	OverTitle; Font fuente;
+	Sprite	fondo,		fuegoSec,	fuegoMSec,	fuegoM2Sec,	personaje,		enemigo;
+	Texture fondoTex,	fuegoTex,	fuegoMTex,	fuegoM2Tex,	personajeTex,	enemigoTex;
+	RectangleShape vida, fondoRojo;
 
 	Event evento; 
 

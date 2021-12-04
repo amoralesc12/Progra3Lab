@@ -10,7 +10,7 @@ class elegirBando
 {
 public:
 
-	void loadScreen_B(RenderWindow& ventana, Music& musica);
+	void loadScreen_B(RenderWindow& ventana, Music& musica, int puntos);
 private:
 	void renderB(RenderWindow& ventana);
 

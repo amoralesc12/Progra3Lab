@@ -40,7 +40,7 @@ void TriviaSelect::loadSprites_TS() {
 	message1.setCharacterSize(40);
 
 }
-void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
+void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica, int puntos) {
 
 	loadSprites_TS();
 
@@ -57,48 +57,48 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 				if (this->qb1.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana, musica);
+					choose.loadWrongBoxScreen_TS(ventana, musica, puntos);
 				}
 				else if (this->qb2.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen_TS(ventana, musica);
+					choose.loadQuestionBoxScreen_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb3.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana, musica);
+					choose.loadWrongBoxScreen_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb4.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana, musica);
+					choose.loadWrongBoxScreen_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb5.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen2_TS(ventana, musica);
+					choose.loadQuestionBoxScreen2_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb6.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen3_TS(ventana, musica);
+					choose.loadQuestionBoxScreen3_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb7.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadWrongBoxScreen_TS(ventana, musica);
+					choose.loadWrongBoxScreen_TS(ventana, musica, puntos);
 
 				}
 				else if (this->qb8.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadQuestionBoxScreen4_TS(ventana, musica);
+					choose.loadQuestionBoxScreen4_TS(ventana, musica, puntos);
 
 				}
 
@@ -107,7 +107,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 				if (evento.key.code == Keyboard::Escape) {
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R2(ventana, musica);
+					choose.loadQScreen_R2(ventana, musica, puntos);
 				}
 			}
 			
@@ -136,7 +136,7 @@ void TriviaSelect::renderTS(RenderWindow& ventana)
 }
 
 //QUESTIONS & OPTIONS
-void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica)
+void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica, int puntos)
 {
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -155,26 +155,26 @@ void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica
 				if (this->a.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 				}
 				else if (this->b.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
 					window.close();
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 
 				}
 				else if (this->c.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
 					window.close();
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 				}
 				else if (this->d.getGlobalBounds().contains(mousePosF))
 				{
 					TriviaSelect choose;
 					window.close();
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 				}
 			}
 		}
@@ -244,7 +244,7 @@ void TriviaSelect::loadQuestionBoxSprites_TS()
 
 }
 
-void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& musica)
+void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& musica, int puntos)
 {
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -262,26 +262,26 @@ void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& music
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 
 			}
 			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 
 		}
@@ -348,7 +348,7 @@ void TriviaSelect::loadQuestionBoxSprites2_TS()
 	d.setPosition(330, 295);
 }
 
-void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& musica)
+void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& musica, int puntos)
 {
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -366,26 +366,26 @@ void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& music
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 
 			}
 			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 
 		}
@@ -453,7 +453,7 @@ void TriviaSelect::loadQuestionBoxSprites3_TS()
 	d.setPosition(330, 295);
 }
 
-void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica)
+void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica, int puntos)
 {
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -471,26 +471,26 @@ void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& music
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 
 			}
 			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
-				choose.loadScreen_TS(ventana, musica);
+				choose.loadScreen_TS(ventana, musica, puntos);
 			}
 
 		}
@@ -579,7 +579,7 @@ void TriviaSelect::loadWrongBoxSprites_TS()
 
 
 }
-void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica)
+void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica, int puntos)
 {
 	RenderWindow window(VideoMode(900, 500), "Empty Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
@@ -598,7 +598,7 @@ void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica)
 				{
 					TriviaSelect choose;
 					window.close();
-					choose.loadScreen_TS(ventana, musica);
+					choose.loadScreen_TS(ventana, musica, puntos);
 				}
 
 			}

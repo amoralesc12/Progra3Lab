@@ -16,6 +16,7 @@ void elegirBando::addingSprites_B() {
 	if (!g2.loadFromFile("Resources/textoE.png")) { cout << "NO SE ENCUENTRA"; }
 	if (!mensjB.loadFromFile("Resources/mBando.png")) { cout << "NO SE ENCUENTRA"; }
 	if (!izq.loadFromFile("Resources/Guardia izq.png")) { cout << "NO SE ENCUENTRA"; }
+	if (!der.loadFromFile("Resources/Guardia Rojo.png")) { cout << "NO SE ENCUENTRA"; }
 
 
 	bgBando.setTexture(bgB);
@@ -30,14 +31,15 @@ void elegirBando::addingSprites_B() {
 	text2.setTexture(g2);
 	text2.setPosition(650, 350);
 
-	Sder.setTexture(izq);
+	Sder.setTexture(der);
+	Sder.setScale(.39,.39);
 	Sder.setPosition(545, 525);
 
 	mensj.setTexture(mensjB);
 	mensj.setPosition(10, 50);
 }
 
-void elegirBando::loadScreen_B(RenderWindow& ventana, Music& musica)
+void elegirBando::loadScreen_B(RenderWindow& ventana, Music& musica, int puntos)
 {
 	addingSprites_B();
 
@@ -55,13 +57,13 @@ void elegirBando::loadScreen_B(RenderWindow& ventana, Music& musica)
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana, musica);
+					choose.loadQScreen_R(ventana, musica, puntos);
 				}
 				else if (this->Sder.getGlobalBounds().contains(mousePosF))
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana, musica);
+					choose.loadQScreen_R(ventana, musica, puntos);
 
 				}
 

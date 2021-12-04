@@ -11,9 +11,9 @@ class Game
 {
 public:
 	Game(RenderWindow& mWindow);
-	void run(RenderWindow& mWindow, Music& musica);
+	void run(RenderWindow& mWindow, Music& musica, int puntos);
 private:
-	void processEvents(RenderWindow& mWindow, Music& musica);
+	void processEvents(RenderWindow& mWindow, Music& musica, int puntos);
 	//void update();
 	void update(sf::Time);
 	void render(RenderWindow& mWindow, Music& musica);
