@@ -39,7 +39,7 @@ void mainscreen::loadSprites() {
 
 void mainscreen::pantallaInicial() {
 
-	RenderWindow window(VideoMode(1000, 700), "Pantalla Inicio", Style::Titlebar | Style::Close);
+	RenderWindow window(VideoMode(982, 700), "Pantalla Inicio", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadSprites();
 
@@ -57,6 +57,7 @@ void mainscreen::pantallaInicial() {
 				{
 					window.clear();
 					IntroLvl intro(window, musica);
+					
 				}
 
 

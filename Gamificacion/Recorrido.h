@@ -15,12 +15,12 @@ public:
 	void loadQScreen_R1(RenderWindow& ventana, Music& musica);
 	void renderR1(RenderWindow& ventana);
 
-	void loadQScreen_R2(RenderWindow& ventana);
+	void loadQScreen_R2(RenderWindow& ventana, Music& musica);
 	void renderR2(RenderWindow& ventana);
 
 private:
 
-	Sprite rbg, r1bg, r2bg;  Texture bg, bg1;
+	Sprite rbg, r1bg, r2bg;  Texture bg, bg1, bg2;
 	Event evento;
 
 };

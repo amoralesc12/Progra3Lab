@@ -15,6 +15,7 @@ void TriviaSelect::loadSprites_TS() {
 
 	if (!bg.loadFromFile("Resources/bgTriviaSelect.jpg")) { cout << "NO ESTA"; }
 	if (!b1.loadFromFile("Resources/qb.png")) { cout << "NO ESTA"; }
+	if (!fuente.loadFromFile("Resources/Elastic Stretch.ttf")) { cout << "NO ESTA LA FUENTE"; }
 	
 	
 	bgN1.setTexture(bg);
@@ -31,8 +32,14 @@ void TriviaSelect::loadSprites_TS() {
 	qb7.setTexture(b1);			qb7.setPosition(550, 400);
 	qb8.setTexture(b1);			qb8.setPosition(750, 400);
 
-}
+	message1.setString("\t\t\t\IMPORTANTE: solo tienes 1 oportunidad para responder\n");
 
+	message1.setFont(fuente);
+	message1.setFillColor(Color::Black);
+	message1.setPosition(900, 400);
+	message1.setCharacterSize(40);
+
+}
 void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 
 	loadSprites_TS();
@@ -100,7 +107,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 				if (evento.key.code == Keyboard::Escape) {
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R1(ventana, musica);
+					choose.loadQScreen_R2(ventana, musica);
 				}
 			}
 			
@@ -113,7 +120,7 @@ void TriviaSelect::loadScreen_TS(RenderWindow& ventana, Music& musica) {
 }
 void TriviaSelect::renderTS(RenderWindow& ventana)
 {
-
+	ventana.draw(this->message1);
 	ventana.draw(this->bgN1);
 	ventana.draw(this->qb1);
 	ventana.draw(this->qb2);
@@ -127,17 +134,14 @@ void TriviaSelect::renderTS(RenderWindow& ventana)
 
 	ventana.display();
 }
-;
+
 //QUESTIONS & OPTIONS
 void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica)
 {
 	RenderWindow window(VideoMode(612, 408), "Open Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadQuestionBoxSprites_TS();
-	/*Vector2i mousePos = Mouse::getPosition();
-	Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));*/
-
-
+	
 	while (window.isOpen()) {
 		while (window.pollEvent(this->evento)) {
 			Vector2i mousePos = Mouse::getPosition();
@@ -146,32 +150,33 @@ void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica
 			if (this->evento.type == Event::Closed) {
 				window.close();
 			}
-			if (this->opA.getGlobalBounds().contains(mousePosF))
-			{
-				TriviaSelect choose;
-				window.close();
-				choose.loadScreen_TS(ventana, musica);
-			}
-			else if (this->opB.getGlobalBounds().contains(mousePosF))
-			{
-				TriviaSelect choose;
-				window.close();
-				choose.loadScreen_TS(ventana, musica);
+			if (this->evento.type == Event::MouseButtonPressed) {
 
-			}
-			else if (this->opC.getGlobalBounds().contains(mousePosF))
-			{
-				TriviaSelect choose;
-				window.close();
-				choose.loadScreen_TS(ventana, musica);
-			}
-			else if (this->opD.getGlobalBounds().contains(mousePosF))
-			{
-				TriviaSelect choose;
-				window.close();
-				choose.loadScreen_TS(ventana, musica);
-			}
+				if (this->a.getGlobalBounds().contains(mousePosF))
+				{
+					TriviaSelect choose;
+					choose.loadScreen_TS(ventana, musica);
+				}
+				else if (this->b.getGlobalBounds().contains(mousePosF))
+				{
+					TriviaSelect choose;
+					window.close();
+					choose.loadScreen_TS(ventana, musica);
 
+				}
+				else if (this->c.getGlobalBounds().contains(mousePosF))
+				{
+					TriviaSelect choose;
+					window.close();
+					choose.loadScreen_TS(ventana, musica);
+				}
+				else if (this->d.getGlobalBounds().contains(mousePosF))
+				{
+					TriviaSelect choose;
+					window.close();
+					choose.loadScreen_TS(ventana, musica);
+				}
+			}
 		}
 
 		window.draw(this->QuestionS);
@@ -180,8 +185,10 @@ void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica
 		window.draw(this->opB);
 		window.draw(this->opC);
 		window.draw(this->opD);
-
-
+		window.draw(this->a);
+		window.draw(this->b);
+		window.draw(this->c);
+		window.draw(this->d);
 		window.display();
 	}
 
@@ -189,7 +196,9 @@ void TriviaSelect::loadQuestionBoxScreen_TS(RenderWindow& ventana, Music& musica
 void TriviaSelect::loadQuestionBoxSprites_TS()
 {
 	if (!qs.loadFromFile("Resources/Questions.jpg")) { cout << "NO ESTA"; }
+	if (!options.loadFromFile("Resources/oA.png")) { cout << "NO ESTA"; }
 	if (!fuente.loadFromFile("Resources/ScriptLetter.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	
 	QuestionS.setTexture(qs);
 	QuestionS.setPosition(0, 0);
 
@@ -205,24 +214,34 @@ void TriviaSelect::loadQuestionBoxSprites_TS()
 	opA.setFillColor(Color::White);
 	opA.setPosition(100, 220);
 	opA.setCharacterSize(25);
+	a.setTexture(options);
+	a.setPosition(50,220);
 
 	opB.setString(" B. Criticistas ");
 	opB.setFont(fuente);
 	opB.setFillColor(Color::White);
 	opB.setPosition(380, 220);
 	opB.setCharacterSize(25);
+	b.setTexture(options);
+	b.setPosition(330, 220);
 
 	opC.setString(" C. Racionalistas ");
 	opC.setFont(fuente);
 	opC.setFillColor(Color::White);
 	opC.setPosition(100, 295);
 	opC.setCharacterSize(25);
+	c.setTexture(options);
+	c.setPosition(50, 295);
 
 	opD.setString(" D. Dogmáticos ");
 	opD.setFont(fuente);
 	opD.setFillColor(Color::White);
 	opD.setPosition(380, 295);
 	opD.setCharacterSize(25);
+	d.setTexture(options);
+	d.setPosition(330, 295);
+
+
 }
 
 void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& musica)
@@ -239,26 +258,26 @@ void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& music
 			if (this->evento.type == Event::Closed) {
 				window.close();
 			}
-			if (this->opA.getGlobalBounds().contains(mousePosF))
+			if (this->a.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opB.getGlobalBounds().contains(mousePosF))
+			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 
 			}
-			else if (this->opC.getGlobalBounds().contains(mousePosF))
+			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opD.getGlobalBounds().contains(mousePosF))
+			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
@@ -273,8 +292,10 @@ void TriviaSelect::loadQuestionBoxScreen2_TS(RenderWindow& ventana, Music& music
 		window.draw(this->opB);
 		window.draw(this->opC);
 		window.draw(this->opD);
-
-
+		window.draw(this->a);
+		window.draw(this->b);
+		window.draw(this->c);
+		window.draw(this->d);
 		window.display();
 	}
 
@@ -283,6 +304,8 @@ void TriviaSelect::loadQuestionBoxSprites2_TS()
 {
 	if (!qs.loadFromFile("Resources/Questions.jpg")) { cout << "NO ESTA"; }
 	if (!fuente.loadFromFile("Resources/ScriptLetter.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	if (!options.loadFromFile("Resources/oA.png")) { cout << "NO ESTA"; }
+
 	QuestionS.setTexture(qs);
 	QuestionS.setPosition(0, 0);
 
@@ -297,24 +320,32 @@ void TriviaSelect::loadQuestionBoxSprites2_TS()
 	opA.setFillColor(Color::White);
 	opA.setPosition(100, 220);
 	opA.setCharacterSize(25);
+	a.setTexture(options);
+	a.setPosition(50, 220);
 
 	opB.setString(" B. Racionalistas ");
 	opB.setFont(fuente);
 	opB.setFillColor(Color::White);
 	opB.setPosition(380, 220);
 	opB.setCharacterSize(25);
+	b.setTexture(options);
+	b.setPosition(330, 220);
 
 	opC.setString(" C. Empiristas ");
 	opC.setFont(fuente);
 	opC.setFillColor(Color::White);
 	opC.setPosition(100, 295);
 	opC.setCharacterSize(25);
+	c.setTexture(options);
+	c.setPosition(50, 295);
 
 	opD.setString(" D. Escépticos ");
 	opD.setFont(fuente);
 	opD.setFillColor(Color::White);
 	opD.setPosition(380, 295);
 	opD.setCharacterSize(25);
+	d.setTexture(options);
+	d.setPosition(330, 295);
 }
 
 void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& musica)
@@ -331,26 +362,26 @@ void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& music
 			if (this->evento.type == Event::Closed) {
 				window.close();
 			}
-			if (this->opA.getGlobalBounds().contains(mousePosF))
+			if (this->a.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opB.getGlobalBounds().contains(mousePosF))
+			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 
 			}
-			else if (this->opC.getGlobalBounds().contains(mousePosF))
+			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opD.getGlobalBounds().contains(mousePosF))
+			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
@@ -365,8 +396,10 @@ void TriviaSelect::loadQuestionBoxScreen3_TS(RenderWindow& ventana, Music& music
 		window.draw(this->opB);
 		window.draw(this->opC);
 		window.draw(this->opD);
-
-
+		window.draw(this->a);
+		window.draw(this->b);
+		window.draw(this->c);
+		window.draw(this->d);
 		window.display();
 	}
 
@@ -375,6 +408,8 @@ void TriviaSelect::loadQuestionBoxSprites3_TS()
 {
 	if (!qs.loadFromFile("Resources/Questions.jpg")) { cout << "NO ESTA"; }
 	if (!fuente.loadFromFile("Resources/ScriptLetter.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	if (!options.loadFromFile("Resources/oA.png")) { cout << "NO ESTA"; }
+
 	QuestionS.setTexture(qs);
 	QuestionS.setPosition(0, 0);
 
@@ -390,24 +425,32 @@ void TriviaSelect::loadQuestionBoxSprites3_TS()
 	opA.setFillColor(Color::White);
 	opA.setPosition(100, 220);
 	opA.setCharacterSize(25);
+	a.setTexture(options);
+	a.setPosition(50, 220);
 
 	opB.setString(" B. Racionalistas ");
 	opB.setFont(fuente);
 	opB.setFillColor(Color::White);
 	opB.setPosition(380, 220);
 	opB.setCharacterSize(25);
+	b.setTexture(options);
+	b.setPosition(330, 220);
 
 	opC.setString(" C. Empiristas ");
 	opC.setFont(fuente);
 	opC.setFillColor(Color::White);
 	opC.setPosition(100, 295);
 	opC.setCharacterSize(25);
+	c.setTexture(options);
+	c.setPosition(50, 295);
 
 	opD.setString(" D. Escépticos ");
 	opD.setFont(fuente);
 	opD.setFillColor(Color::White);
 	opD.setPosition(380, 295);
 	opD.setCharacterSize(25);
+	d.setTexture(options);
+	d.setPosition(330, 295);
 }
 
 void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica)
@@ -424,26 +467,26 @@ void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& music
 			if (this->evento.type == Event::Closed) {
 				window.close();
 			}
-			if (this->opA.getGlobalBounds().contains(mousePosF))
+			if (this->a.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opB.getGlobalBounds().contains(mousePosF))
+			else if (this->b.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 
 			}
-			else if (this->opC.getGlobalBounds().contains(mousePosF))
+			else if (this->c.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
 				choose.loadScreen_TS(ventana, musica);
 			}
-			else if (this->opD.getGlobalBounds().contains(mousePosF))
+			else if (this->d.getGlobalBounds().contains(mousePosF))
 			{
 				TriviaSelect choose;
 				window.close();
@@ -458,8 +501,10 @@ void TriviaSelect::loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& music
 		window.draw(this->opB);
 		window.draw(this->opC);
 		window.draw(this->opD);
-
-
+		window.draw(this->a);
+		window.draw(this->b);
+		window.draw(this->c);
+		window.draw(this->d);
 		window.display();
 	}
 
@@ -468,6 +513,7 @@ void TriviaSelect::loadQuestionBoxSprites4_TS()
 {
 	if (!qs.loadFromFile("Resources/Questions.jpg")) { cout << "NO ESTA"; }
 	if (!fuente.loadFromFile("Resources/ScriptLetter.ttf")) { cout << "NO ESTA LA FUENTE"; }
+	if (!options.loadFromFile("Resources/oA.png")) { cout << "NO ESTA"; }
 	QuestionS.setTexture(qs);
 	QuestionS.setPosition(0, 0);
 
@@ -482,24 +528,32 @@ void TriviaSelect::loadQuestionBoxSprites4_TS()
 	opA.setFillColor(Color::White);
 	opA.setPosition(100, 220);
 	opA.setCharacterSize(25);
+	a.setTexture(options);
+	a.setPosition(50, 220);
 
 	opB.setString(" B. David Hume ");
 	opB.setFont(fuente);
 	opB.setFillColor(Color::White);
 	opB.setPosition(380, 220);
 	opB.setCharacterSize(25);
+	b.setTexture(options);
+	b.setPosition(330, 220);
 
 	opC.setString(" C. Leibniz ");
 	opC.setFont(fuente);
 	opC.setFillColor(Color::White);
 	opC.setPosition(100, 295);
 	opC.setCharacterSize(25);
+	c.setTexture(options);
+	c.setPosition(50, 295);
 
 	opD.setString(" D. Hipatía ");
 	opD.setFont(fuente);
 	opD.setFillColor(Color::White);
 	opD.setPosition(380, 295);
 	opD.setCharacterSize(25);
+	d.setTexture(options);
+	d.setPosition(330, 295);
 }
 
 // WRONG BOX
@@ -530,12 +584,10 @@ void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica)
 	RenderWindow window(VideoMode(900, 500), "Empty Box", Style::Titlebar | Style::Close);
 	window.setFramerateLimit(60);
 	loadWrongBoxSprites_TS();
-	Vector2i mousePos = Mouse::getPosition();
-	Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
 	while (window.isOpen()) {
-		/*Vector2i mousePos = Mouse::getPosition();
-		Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));*/
+		Vector2i mousePos = Mouse::getPosition();
+		Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 		while (window.pollEvent(this->evento)) {
 			if (this->evento.type == Event::Closed) {
 				window.close();
@@ -553,9 +605,6 @@ void TriviaSelect::loadWrongBoxScreen_TS(RenderWindow& ventana, Music& musica)
 
 			window.draw(this->wrongS);
 			window.draw(this->message);
-		
-
-
 			window.display();
 		}
 

@@ -1,6 +1,7 @@
 #include "Recorrido.h"
 #include "TriviaSelect.h"
 #include "Game.h"
+#include "PrisonEscape.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 //COMMIT
@@ -10,9 +11,9 @@ using namespace std;
 
 void Recorrido::loadSprites_R()
 {
-	if (!bg.loadFromFile("Resources/r.png")) { cout << "NO ESTA"; }
-	if (!bg1.loadFromFile("Resources/r.png")) { cout << "NO ESTA"; }
-	//if (!bg.loadFromFile("Resources/recorrido1.png")) { cout << "NO ESTA"; }
+	if (!bg.loadFromFile("Resources/n1.png")) { cout << "NO ESTA"; }
+	if (!bg1.loadFromFile("Resources/n2.png")) { cout << "NO ESTA"; }
+	if (!bg2.loadFromFile("Resources/n3.png")) { cout << "NO ESTA"; }
 
 	rbg.setTexture(bg);
 	rbg.setPosition(0, 0);
@@ -20,8 +21,8 @@ void Recorrido::loadSprites_R()
 	r1bg.setTexture(bg1);
 	r1bg.setPosition(0, 0);
 
-	/*r2bg.setTexture(bg);
-	r2bg.setPosition(0, 0);*/
+	r2bg.setTexture(bg2);
+	r2bg.setPosition(0, 0);
 }
 // Primer recorrido despues de elegir bando
 void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
@@ -33,8 +34,8 @@ void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica)
 			Vector2i mousePos = Mouse::getPosition(ventana);
 			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
-			if (evento.type == Event::KeyPressed) {
-				if (evento.key.code == Keyboard::Escape) {
+			if (evento.type == Event::MouseButtonPressed) {
+				if (this->rbg.getGlobalBounds().contains(mousePosF)) {
 				
 					RenderWindow window;
 					Game choose(ventana);
@@ -66,7 +67,7 @@ void Recorrido::loadQScreen_R1(RenderWindow& ventana, Music& musica)
 			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
 
 			if (evento.type == Event::KeyPressed) {
-				if (evento.key.code == Keyboard::Escape) {
+				if (this->r1bg.getGlobalBounds().contains(mousePosF)) {
 					RenderWindow window;
 					TriviaSelect choose;
 					choose.loadScreen_TS(ventana, musica);
@@ -87,33 +88,34 @@ void Recorrido::renderR1(RenderWindow& ventana)
 	ventana.display();
 }
 
-// Recorrido despues de Trivia Select / FALTA CAMBIAR
-//void Recorrido::loadQScreen_R2(RenderWindow& ventana)
-//{
-//	loadSprites_R();
-//
-//	while (ventana.isOpen()) {
-//		while (ventana.pollEvent(this->evento)) {
-//			Vector2i mousePos = Mouse::getPosition(ventana);
-//			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
-//
-//			if (evento.type == Event::KeyPressed) {
-//				if (evento.key.code == Keyboard::D) {
-//					RenderWindow window;
-//					Game choose;
-//					choose.run();
-//				}
-//			}
-//
-//
-//		}
-//
-//		renderR2(ventana);
-//	}
-//}
-//void Recorrido::renderR2(RenderWindow& ventana)
-//{
-//	ventana.clear(Color::Black);
-//	ventana.draw(this->r1bg);
-//	ventana.display();
-//}
+// Recorrido despues de Trivia Select
+void Recorrido::loadQScreen_R2(RenderWindow& ventana,Music& musica)
+{
+	loadSprites_R();
+
+	while (ventana.isOpen()) {
+		while (ventana.pollEvent(this->evento)) {
+			Vector2i mousePos = Mouse::getPosition(ventana);
+			Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+			if (evento.type == Event::MouseButtonPressed) {
+				if (this->r2bg.getGlobalBounds().contains(mousePosF)) {
+					RenderWindow window;
+					PrisonEscape PrisonEscape(ventana, musica);
+					
+				
+				}
+			}
+
+
+		}
+
+		renderR2(ventana);
+	}
+}
+void Recorrido::renderR2(RenderWindow& ventana)
+{
+	ventana.clear(Color::Black);
+	ventana.draw(this->r2bg);
+	ventana.display();
+}
