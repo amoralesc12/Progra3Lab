@@ -9,16 +9,37 @@ using namespace std;
 class Question
 {
 public:
-	Question();
-	int getQuestion();
-	int getResp();
-	array<array<string, 7>, 10 >q;
+//Question = Arte
+	void Arte();
+	int getArte();
+	int getResp_Arte();
+
+	void Politica();
+	int getPolitica();
+	int getResp_Politica();
+
+	void Ciencia();
+	int getCiencia();
+	int getResp_Ciencia();
+
+	void Historia();
+	int getHistoria();
+	int getResp_Historia();
+
+	void Game_Globos();
+	int getGame_Globos();
+	int getResp_Game_Globos();
+
+	array<array<string, 7>, 5 >q;
+	array<array<string, 6>, 8 >g;
 	int temF;
+
 
 
 private:
 	//array de 5 columnas y 20 filas
-	//Columna 1 guarda la Pregunta, de la 2 a la 5 las opciones, la columna 6 el numero de respuesta correcta y la 7 el tipo de pregunta(0-> Arte, 2->Politica ...)
+	//Columna 1 guarda la Pregunta, de la 2 a la 5 las opciones, la columna 6 el numero de respuesta correcta 
+	//y la 7 el tipo de pregunta(0-> Arte, 1->Politica, 2->Ciencia, 3-> Historia)
 
 	int temC;
 
