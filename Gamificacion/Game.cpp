@@ -16,7 +16,8 @@ Game::Game(RenderWindow& mWindow)
 	{
 	}
 
-	texto.setString(question.q[question.getQuestion()][0]);
+	question.Game_Globos();
+	texto.setString(question.g[question.getGame_Globos()][0]);
 	// Asignamos la fuente que hemos cargado al texto
 	texto.setFont(fuente);
 	// Tamaño de la fuente
@@ -86,19 +87,19 @@ void Game::load_graphs() {
 	spr_Pointer.setPosition(300.f, 200.f);
 	//spr_Pointer.setScale(sf::Vector2f(0.8, 0.8));
 }
-void Game::run(RenderWindow& mWindow, Music& musica, int puntos)
+void Game::run(RenderWindow& mWindow, Music& musica, int puntos, int contador)
 {
 	sf::Clock clock;
 	while (mWindow.isOpen()){
 		sf::Time deltaTime = clock.getElapsedTime();
-		processEvents(mWindow, musica, puntos);
+		processEvents(mWindow, musica, puntos, contador);
 		update(deltaTime);
 		render(mWindow, musica);
 		
 	}
 }
 
-void Game::processEvents(RenderWindow& mWindow, Music& musica, int puntos)
+void Game::processEvents(RenderWindow& mWindow, Music& musica, int puntos, int contador)
 {
 	sf::FloatRect rect(spr_Pointer.getPosition(), (sf::Vector2f)spr_Pointer.getTexture()->getSize());
 	sf::Cursor def; def.loadFromSystem(sf::Cursor::Arrow);
@@ -121,15 +122,22 @@ void Game::processEvents(RenderWindow& mWindow, Music& musica, int puntos)
 				if (spr_globos[i].getGlobalBounds().intersects(rect))
 				{
 					//spr_globos[i].setColor(sf::Color(250, 0, 0));
-					if (question.getResp() == i)
+					if (question.getResp_Game_Globos() == i)
 					{
 						//GANADORRRR
-						spr_globos[i].setColor(sf::Color::Cyan);
-						
-						TriviaSelect choose;
-						mWindow.setMouseCursor(def);
-						mWindow.setMouseCursorVisible(true);
-						choose.loadScreen_TS(mWindow, musica, puntos);
+						spr_globos[i].setColor(sf::Color::Green);
+						contador++;
+						Clock delay;
+						while (delay.getElapsedTime().asMilliseconds() <= 1350) { }
+
+						if (contador >= 4) {
+							TriviaSelect choose;
+							mWindow.setMouseCursor(def);
+							mWindow.setMouseCursorVisible(true);
+							choose.loadScreen_TS(mWindow, musica, puntos);
+						}
+						Game reset(mWindow);
+						reset.run(mWindow, musica, puntos, contador);
 					}
 					else {
 						if (!tex_globos[i].loadFromFile("Resources/b5.png")) {

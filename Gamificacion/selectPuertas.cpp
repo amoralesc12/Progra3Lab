@@ -85,7 +85,7 @@ void selectPuertas::loadSprites() {
 
 }
 
-void selectPuertas::render(RenderWindow& ventana) {
+void selectPuertas::render(RenderWindow& ventana, Music& musica) {
 	ventana.clear(Color::Black);
 	ventana.draw(this->fondo);
 	ventana.draw(this->select);
@@ -108,6 +108,20 @@ void selectPuertas::render(RenderWindow& ventana) {
 
 	}
 	ventana.display();
+	if (respondido) {
+		contador++;
+		Clock delay;
+		while (delay.getElapsedTime().asMilliseconds() < 1250) { }
+		cout << puntos;
+		respondido = false;
+		recuadro = false;
+		cuadro.setFillColor(Color(21, 53, 58, 255));
+		delay.restart();
+		if (contador >= 4) {
+			elegirBando choose;
+			choose.loadScreen_B(ventana, musica, puntos);
+		}
+	}
 }
 
 selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
@@ -145,7 +159,8 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 					if (puerta1.getGlobalBounds().contains(mousePosF) || puerta2.getGlobalBounds().contains(mousePosF) ||
 						puerta3.getGlobalBounds().contains(mousePosF) || puerta4.getGlobalBounds().contains(mousePosF)) {
 						recuadro = true;
-						pregunta.setString(quest.q[quest.getQuestion()][0]);
+						quest.Arte();
+						pregunta.setString(quest.q[quest.getArte()][0]);
 						for (size_t i = 0; i < 4; i++) {
 							string temporal;
 							Resp[i].setString(std::to_string(i+1) + " " + quest.q[quest.temF][i + 1]);
@@ -155,7 +170,6 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 				}
 				if (evento.type == Event::KeyPressed) {
 					if (evento.key.code == Keyboard::Escape) {
-						RenderWindow window;
 						elegirBando choose;
 						choose.loadScreen_B(ventana, musica, puntos);
 					}
@@ -173,12 +187,14 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 					{
 						if (Resp[i].getGlobalBounds().contains(mousePosF))
 						{
+							respondido = true;
 							//spr_globos[i].setColor(sf::Color(250, 0, 0));
-							if (quest.getResp() == i)
+							if (quest.getResp_Arte() == i)
 							{
 								//GANADORRRR
 								cuadro.setFillColor(Color::Green);
 								puntos += 200;
+
 							}
 							else {
 								cuadro.setFillColor(Color::Red);
@@ -188,6 +204,6 @@ selectPuertas::selectPuertas(RenderWindow& ventana, Music& musica) {
 				}
 			}
 		}
-		render(ventana);
+		render(ventana, musica);
 	}
 }

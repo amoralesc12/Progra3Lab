@@ -15,9 +15,9 @@ public:
 
 private:
 	void loadSprites();
-	void render(RenderWindow& ventana);
-	bool recuadro = false;
-	int puntos;
+	void render(RenderWindow& ventana, Music& musica);
+	bool recuadro = false; bool respondido = false;
+	int puntos = 0; int contador = 0;
 
 	Sprite	puerta1, puerta2, puerta3, puerta4, fondo;
 	Texture	puertaA, puertaB, puertaC, puertaD, fondoT;
