@@ -55,11 +55,8 @@ void mainscreen::pantallaInicial() {
 
 				if (this->Bplay.getGlobalBounds().contains(mousePosF))
 				{
-					TriviaSelect choose;
-					choose.loadScreen_TS(window,musica);
-					
-					/*window.clear();
-					IntroLvl intro(window, musica);*/
+					window.clear();
+					IntroLvl intro(window, musica);
 					
 				}
 

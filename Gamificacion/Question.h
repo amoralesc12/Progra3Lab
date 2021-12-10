@@ -30,10 +30,8 @@ public:
 	int getGame_Globos();
 	int getResp_Game_Globos();
 
-	//Para select puertas(ruleta del saber)
 	array<array<string, 7>, 5 >q;
-	//Para juego de globos
-	array<array<string, 6>, 4 >g;
+	array<array<string, 6>, 8 >g;
 	int temF;
 
 

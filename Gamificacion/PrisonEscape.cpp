@@ -58,7 +58,7 @@ void PrisonEscape::loadSprites(Music& musica, int puntos) {
 
 };
 
-PrisonEscape::PrisonEscape(RenderWindow& ventana, Music& musica, int puntos) : puntVida(300)
+PrisonEscape::PrisonEscape(RenderWindow& ventana, Music& musica, int puntos) : puntVida(puntos*300/2400)
 {
 	Clock clock;
 	ventana.setFramerateLimit(60);

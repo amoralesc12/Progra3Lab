@@ -39,7 +39,7 @@ void Recorrido::loadQScreen_R(RenderWindow& ventana, Music& musica, int puntos)
 				
 					RenderWindow window;
 					Game choose(ventana);
-					choose.run(ventana, musica, puntos);
+					choose.run(ventana, musica, puntos, 0);
 				}
 			}
 			

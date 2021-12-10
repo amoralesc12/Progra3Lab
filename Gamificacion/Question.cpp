@@ -250,29 +250,51 @@ int Question::getResp_Historia()
 
 void Question::Game_Globos()
 {
-	
-	this->g[0][0] = "De las siguientes, una de ellas es la corriente filosófica que en general tiende a negar la"
-		            "posibilidad de la metafísica y a sostener que hay conocimiento únicamente de los fenómenos.";
-	this->g[0][1] = "Racionalistas";
-	this->g[0][2] = "Empiristas";
-	this->g[0][3] = "Escolasticos";
-	this->g[0][4] = "Escepticos";
-	this->g[0][5] = "2";
-	
-	this->g[1][0] = "Filósofos que postulan las ideas innatas en el sujeto.";
-	this->g[1][1] = "Empiristas";
-	this->g[1][2] = "Idealistas";
-	this->g[1][3] = "Racionalistas";
-	this->g[1][4] = "Innatistas";
-	this->g[1][5] = "3";
+	this->g[0][0] = "Para algunos de los siguientes filósofos, el criterio de verdad es la evidencia sensible:";
+	this->g[0][1] = "Empiristas";
+	this->g[0][2] = "Criticistas";
+	this->g[0][3] = "Racionalistas";
+	this->g[0][4] = "Dogmaticos";
+	this->g[0][5] = "1";
 	
 
-	this->g[2][0] = "De los siguientes filosofos seleccione el que no se considera Racionalista:";
-	this->g[2][1] = "David Hume";
-	this->g[2][2] = "John Locke";
-	this->g[2][3] = "Nicolas Malebranch";
-	this->g[2][4] = "Francis Bacon";
+	this->g[1][0] = "De las siguientes, una de ellas es la corriente filosófica que en general tiende a negar la"
+		            "posibilidad de la metafísica y a sostener que hay conocimiento únicamente de los fenómenos.";
+	this->g[1][1] = "Racionalistas";
+	this->g[1][2] = "Empiristas";
+	this->g[1][3] = "Escolasticos";
+	this->g[1][4] = "Escepticos";
+	this->g[1][5] = "2";
+	
+	this->g[2][0] = " Para unos de los siguientes filósofos, la experiencia como única fuente del conocimiento.";
+	this->g[2][1] = "Epismetologos";
+	this->g[2][2] = "Racionalistas";
+	this->g[2][3] = "Empiristas";
+	this->g[2][4] = "Escepticos";
 	this->g[2][5] = "3";
+	
+	this->g[3][0] = "Filósofos para quienes la única fuente del conocimiento es la razón. ";
+	this->g[3][1] = "Epistemologos";
+	this->g[3][2] = "Racionalistas";
+	this->g[3][3] = "Empiristas";
+	this->g[3][4] = "Escepticos";
+	this->g[3][5] = "2";
+
+
+	this->g[4][0] = "Filósofos que postulan las ideas innatas en el sujeto.";
+	this->g[4][1] = "Empiristas";
+	this->g[4][2] = "Idealistas";
+	this->g[4][3] = "Racionalistas";
+	this->g[4][4] = "Innatistas";
+	this->g[4][5] = "3";
+	
+
+	this->g[5][0] = "De los siguientes filosofos seleccione el que no se considera Racionalista:";
+	this->g[5][1] = "David Hume";
+	this->g[5][2] = "John Locke";
+	this->g[5][3] = "Nicolas Malebranch";
+	this->g[5][4] = "Francis Bacon";
+	this->g[5][5] = "3";
 
 
 	this->g[6][0] = "Es la doctrina que establece que todos nuestros conocimientos provienen de la razon: ";
@@ -282,14 +304,20 @@ void Question::Game_Globos()
 	this->g[6][4] = "Epistemologia";
 	this->g[6][5] = "3";
 
+
+	this->g[7][0] = "Uno de los siguientes filosofos, postula las ideas innatas en el sujeto: ";
+	this->g[7][1] = "George Berkeley";
+	this->g[7][2] = "David Hume";
+	this->g[7][3] = "Leibniz";
+	this->g[7][4] = "Hipatia";
+	this->g[7][5] = "3";
 	
 }
 
 int Question::getGame_Globos()
 {
-
 	default_random_engine motor(static_cast<unsigned int>(time(0)));
-	uniform_int_distribution<unsigned int> intRan(0, 3);
+	uniform_int_distribution<unsigned int> intRan(0, 7);
 	int f = intRan(motor);
 	this->temF = f;
 	return f;
@@ -297,7 +325,7 @@ int Question::getGame_Globos()
 
 int Question::getResp_Game_Globos()
 {
-	return stoi(this->q[this->temF][5]) - 1;
+	return stoi(this->g[this->temF][5]) - 1;
 }
 
 
