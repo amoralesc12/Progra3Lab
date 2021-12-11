@@ -3,7 +3,7 @@
 #define TRIVIASELECT_H
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
-#include <string>
+
 
 using namespace sf;
 class TriviaSelect
@@ -11,7 +11,7 @@ class TriviaSelect
 public:
 	//MAIN SCREEN
 	void loadSprites_TS();
-	void loadScreen_TS(RenderWindow& ventana, Music& musica);
+	void loadScreen_TS(RenderWindow& ventana, Music& musica, int puntos);
 	void renderTS(RenderWindow& ventana);
 
 	//Try Again! Screen
@@ -34,30 +34,28 @@ public:
 	void loadQuestionBoxScreen4_TS(RenderWindow& ventana, Music& musica);
 	void loadQuestionBoxSprites4_TS();
 
-	/*int clockTimer();
-	void fontTimer();
-	*/
+	
 
 	
 	
 private:
-
-	//int timeT;
-	//int vidas =4;
+	bool respondido= true;
+	int puntos = 0;
+	int vidas =4;
 	Sprite bgN1, qb1, qb2,qb3,qb4,qb5,qb6,qb7,qb8, a,b,c,d;
 	Texture bg, b1,b2,b3,b4,b5,b6,b7,b8, options;
 
 	Sprite wrongS, QuestionS;
 	Texture ws, qs;
-
-	Font fuente;
-	Text  /*text,timer,*/ message1, message, question, opA, opB, opC, opD;
+	Music musica;
+	
+	SoundBuffer soundbuffer, buffer;
+	Sound wrong, right;
+	Font fuente, font;
+	Text  text, message1, message, question, opA, opB, opC, opD;
 	
 	Event evento;
 
-	/*string timetoString;
-	Time time;
-	Clock clock;*/
 
 };
 #endif // !TRIVIASELECT_H

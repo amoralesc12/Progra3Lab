@@ -14,7 +14,7 @@ public:
 	void loadSprites();
 
 private:
-
+	int puntos;
 	Sprite bgInicio; Texture fondoInicial;
 
 	Sprite Bsalir; Texture salir;

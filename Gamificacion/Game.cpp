@@ -131,11 +131,10 @@ void Game::processEvents(RenderWindow& mWindow, Music& musica, int puntos, int c
 						while (delay.getElapsedTime().asMilliseconds() <= 1350) { }
 
 						if (contador >= 4) {
-							TriviaSelect choose;
+							Recorrido ch;
 							mWindow.setMouseCursor(def);
 							mWindow.setMouseCursorVisible(true);
-							choose.loadScreen_TS(mWindow, musica, puntos);
-						}
+							ch.loadQScreen_R1(mWindow,musica,puntos);						}
 						Game reset(mWindow);
 						reset.run(mWindow, musica, puntos, contador);
 					}

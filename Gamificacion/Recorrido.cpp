@@ -11,9 +11,9 @@ using namespace std;
 
 void Recorrido::loadSprites_R()
 {
-	if (!bg.loadFromFile("Resources/n1.png")) { cout << "NO ESTA"; }
-	if (!bg1.loadFromFile("Resources/n2.png")) { cout << "NO ESTA"; }
-	if (!bg2.loadFromFile("Resources/n3.png")) { cout << "NO ESTA"; }
+	if (!bg.loadFromFile("Resources/n2.png")) { cout << "NO ESTA"; }
+	if (!bg1.loadFromFile("Resources/n3.png")) { cout << "NO ESTA"; }
+	if (!bg2.loadFromFile("Resources/nf.png")) { cout << "NO ESTA"; }
 
 	rbg.setTexture(bg);
 	rbg.setPosition(0, 0);

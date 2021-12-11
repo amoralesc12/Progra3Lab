@@ -57,7 +57,9 @@ void mainscreen::pantallaInicial() {
 				{
 					window.clear();
 					IntroLvl intro(window, musica);
-					
+				/*	TriviaSelect ch;
+					ch.loadScreen_TS(window,musica, puntos);
+					*/
 				}
 
 

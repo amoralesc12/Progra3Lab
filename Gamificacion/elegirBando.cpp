@@ -57,13 +57,13 @@ void elegirBando::loadScreen_B(RenderWindow& ventana, Music& musica, int puntos)
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana, musica, puntos);
+					choose.loadQScreen_R(ventana, musica,puntos);
 				}
 				else if (this->Sder.getGlobalBounds().contains(mousePosF))
 				{
 					RenderWindow window;
 					Recorrido choose;
-					choose.loadQScreen_R(ventana, musica, puntos);
+					choose.loadQScreen_R(ventana, musica,puntos);
 
 				}
 

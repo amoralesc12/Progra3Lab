@@ -22,7 +22,7 @@ private:
 
 	Sprite rbg, r1bg, r2bg;  Texture bg, bg1, bg2;
 	Event evento;
-
+	int contador,puntos;
 };
 #endif // !RECORRIDO_H
 

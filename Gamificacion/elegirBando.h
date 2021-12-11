@@ -12,6 +12,7 @@ public:
 
 	void loadScreen_B(RenderWindow& ventana, Music& musica, int puntos);
 private:
+	int puntos;
 	void renderB(RenderWindow& ventana);
 
 	void addingSprites_B();
