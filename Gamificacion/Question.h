@@ -31,7 +31,7 @@ public:
 	int getResp_Game_Globos();
 
 	array<array<string, 7>, 5 >q;
-	array<array<string, 6>, 8 >g;
+	array<array<string, 6>, 4 >g;
 	int temF;
 
 

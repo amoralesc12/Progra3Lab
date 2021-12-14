@@ -250,60 +250,30 @@ int Question::getResp_Historia()
 
 void Question::Game_Globos()
 {
-	this->g[0][0] = "Para algunos de los siguientes filósofos, el criterio de verdad es la evidencia sensible:";
-	this->g[0][1] = "Empiristas";
-	this->g[0][2] = "Criticistas";
-	this->g[0][3] = "Racionalistas";
-	this->g[0][4] = "Dogmaticos";
-	this->g[0][5] = "1";
+
 	
 
-	this->g[1][0] = "De las siguientes, una de ellas es la corriente filosófica que en general tiende a negar la"
+	this->g[0][0] = "De las siguientes, una de ellas es la corriente filosófica que en general tiende a negar la"
 		            "posibilidad de la metafísica y a sostener que hay conocimiento únicamente de los fenómenos.";
-	this->g[1][1] = "Racionalistas";
-	this->g[1][2] = "Empiristas";
-	this->g[1][3] = "Escolasticos";
-	this->g[1][4] = "Escepticos";
-	this->g[1][5] = "2";
+	this->g[0][1] = "Racionalistas";
+	this->g[0][2] = "Empiristas";
+	this->g[0][3] = "Escolasticos";
+	this->g[0][4] = "Escepticos";
+	this->g[0][5] = "2";
 	
-	this->g[2][0] = " Para unos de los siguientes filósofos, la experiencia como única fuente del conocimiento.";
-	this->g[2][1] = "Epismetologos";
+	this->g[1][0] = " Para unos de los siguientes filósofos, la experiencia como única fuente del conocimiento.";
+	this->g[1][1] = "Epismetologos";
+	this->g[1][2] = "Racionalistas";
+	this->g[1][3] = "Empiristas";
+	this->g[1][4] = "Escepticos";
+	this->g[1][5] = "3";
+	
+	this->g[2][0] = "Filósofos para quienes la única fuente del conocimiento es la razón. ";
+	this->g[2][1] = "Epistemologos";
 	this->g[2][2] = "Racionalistas";
 	this->g[2][3] = "Empiristas";
 	this->g[2][4] = "Escepticos";
-	this->g[2][5] = "3";
-	
-	this->g[3][0] = "Filósofos para quienes la única fuente del conocimiento es la razón. ";
-	this->g[3][1] = "Epistemologos";
-	this->g[3][2] = "Racionalistas";
-	this->g[3][3] = "Empiristas";
-	this->g[3][4] = "Escepticos";
-	this->g[3][5] = "2";
-
-
-	this->g[4][0] = "Filósofos que postulan las ideas innatas en el sujeto.";
-	this->g[4][1] = "Empiristas";
-	this->g[4][2] = "Idealistas";
-	this->g[4][3] = "Racionalistas";
-	this->g[4][4] = "Innatistas";
-	this->g[4][5] = "3";
-	
-
-	this->g[5][0] = "De los siguientes filosofos seleccione el que no se considera Racionalista:";
-	this->g[5][1] = "David Hume";
-	this->g[5][2] = "John Locke";
-	this->g[5][3] = "Nicolas Malebranch";
-	this->g[5][4] = "Francis Bacon";
-	this->g[5][5] = "3";
-
-
-	this->g[6][0] = "Es la doctrina que establece que todos nuestros conocimientos provienen de la razon: ";
-	this->g[6][1] = "Empirismo";
-	this->g[6][2] = "Criticismo";
-	this->g[6][3] = "Racionalismo";
-	this->g[6][4] = "Epistemologia";
-	this->g[6][5] = "3";
-
+	this->g[2][5] = "2";
 
 	this->g[7][0] = "Uno de los siguientes filosofos, postula las ideas innatas en el sujeto: ";
 	this->g[7][1] = "George Berkeley";
