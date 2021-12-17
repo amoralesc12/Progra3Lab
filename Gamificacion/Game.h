@@ -11,9 +11,9 @@ class Game
 {
 public:
 	Game(RenderWindow& mWindow);
-	void run(RenderWindow& mWindow, Music& musica, int puntos, int contador);
+	void run(RenderWindow& mWindow, Music& musica, int puntos, int contador, int bando);
 private:
-	void processEvents(RenderWindow& mWindow, Music& musica, int puntos, int contador);
+	void processEvents(RenderWindow& mWindow, Music& musica, int puntos, int contador, int bando);
 	//void update();
 	void update(sf::Time);
 	void render(RenderWindow& mWindow, Music& musica);
@@ -26,6 +26,7 @@ private:
 
 private:
 	//sf::CircleShape mPlayer;
+	sf::Text resp[4];
 	sf::Time TimePerFrame;
 	std::array< sf::Texture, 4>tex_globos;
 	std::array< sf::Sprite, 4>spr_globos;
