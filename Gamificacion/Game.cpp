@@ -23,7 +23,7 @@ Game::Game(RenderWindow& mWindow)
 	// Posición del texto
 	texto.setPosition(20, 10);
 	sf::Color color(250, 16, 74);
-	texto.setFillColor(color);
+	texto.setFillColor(Color:: White);
 
 	question.Game_Globos();
 	texto.setString(question.g[question.getGame_Globos()][0]);
@@ -79,7 +79,7 @@ void Game::load_graphs() {
 	}
 
 	//FONDO
-	if (!tex_Ground.loadFromFile("Resources/ground.png"))
+	if (!tex_Ground.loadFromFile("Resources/FondoBando.jpg"))
 	{
 		// Handle loading error
 	}

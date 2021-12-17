@@ -27,6 +27,9 @@ private:
 
 	Event evento;
 
+	Font fuente;
+	Text titulo;
+
 };
 #endif // !MAINSCREEN_H
 

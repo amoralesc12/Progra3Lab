@@ -17,6 +17,7 @@ void mainscreen::loadSprites() {
 	if (!play.loadFromFile("Resources/buttonplay.png")) { cout << "NO ESTA LA BOTON JUGAR!"; }
 	if (!salir.loadFromFile("Resources/buttonsalir.png")) { cout << "NO ESTA BOTON SALIR!"; }
 	if (!musica.openFromFile("Resources/Intro.ogg")) { cout << "NO ESTA LA MUSICA!"; }
+	if (!fuente.loadFromFile("Resources/velvenda chill.ttf")) { cout << "NO ESTA LA FUENTE"; }
 
 	//setting Sprites with textures
 	this->bgInicio.setTexture(this->fondoInicial);
@@ -35,6 +36,12 @@ void mainscreen::loadSprites() {
 
 	this->Bsalir.setTexture(this->salir);
 	this->Bsalir.setPosition(560, 515);
+
+	titulo.setString("Los Reyes de la Filosfia");
+	titulo.setFont(fuente);
+	titulo.setFillColor(Color::Black);
+	titulo.setPosition(225, 180);
+	titulo.setCharacterSize(60);
 }
 
 void mainscreen::pantallaInicial() {
@@ -57,9 +64,9 @@ void mainscreen::pantallaInicial() {
 				{
 					window.clear();
 					IntroLvl intro(window, musica);
-				/*	TriviaSelect ch;
-					ch.loadScreen_TS(window,musica, puntos);
-					*/
+					/*TriviaSelect ch;
+					ch.loadScreen_TS(window,musica, puntos);*/
+					
 				}
 
 
@@ -71,7 +78,7 @@ void mainscreen::pantallaInicial() {
 
 		window.clear(Color::Black);
 		window.draw(this->bgInicio);
-		window.draw(this->mTitle);
+		window.draw(this->titulo);
 		window.draw(this->Bplay);
 		window.draw(Bsalir);
 		window.display();
