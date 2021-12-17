@@ -14,6 +14,7 @@ public:
 private:
 	int puntos;
 	void renderB(RenderWindow& ventana);
+	int contador = 0;
 
 	void addingSprites_B();
 	Sprite bgBando;  Texture bgB;
